@@ -1,0 +1,109 @@
+@import '../main.scss';
+@import '@splidejs/splide/css/default';
+
+.welcome{
+    &__box{
+        padding: 25px 0px;
+    }
+    &__slider{
+        .slide{
+            &__box{
+                @include df-aic;
+            }
+            &__left, &__right{
+                flex-basis: 50%;
+                width: 50%;
+            }
+            &__top, &__bot{
+                @include df-aic;
+            }
+            /* ============================================================== */
+            /* Top Section */
+            /* ============================================================== */
+            &__top{
+                font-size: 12px;
+            }
+            &__cat{
+                background-color: $colorGreen;
+                color: #fff;
+                padding: 5px 15px;
+                border-radius: 5px;
+                text-transform: capitalize;
+            }
+            &__date{
+                margin-left: 15px;
+                color: #434343;
+            }
+            /* ============================================================== */
+            /* Mid Section */
+            /* ============================================================== */
+            &__mid{
+                max-width: 450px;
+                padding: 10px 0px 20px;
+            }
+            &__title{
+                font-size: 30px;
+                font-weight: 600;
+                line-height: 36px;
+                color: $colorLightBlue;
+            }
+            &__info{
+                margin-top: 5px;
+                line-height: 26px;
+            }
+            /* ============================================================== */
+            /* Bottom Section */
+            /* ============================================================== */
+            &__bot{
+                @include df-aic;
+            }
+            &__more{
+                a{
+                    @include tr(.2s);
+                    font-weight: 700;
+                    line-height: 28px;
+                    color: #121212;
+                    border: 1px solid $colorLightBlue;
+                    padding: 5px 45px;
+                    border-radius: 10px;
+                    background-color: #fff;
+                    &:hover{
+                        background-color: $colorLightBlue;
+                        color: #fff;
+                    }
+                }
+            }
+            &__all{
+                margin-left: 20px;
+                a{
+                    color: $colorLightBlue;
+                    position: relative;
+                    &::after{
+                        @include tr(.2s);
+                        content: '';
+                        position: absolute;
+                        bottom: -3px;
+                        left: 0;
+                        background-color: $colorLightBlue;
+                        width: 0%;
+                        height: 1px;
+                    }
+                    &:hover{
+                        &::after{
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            /* ============================================================== */
+            /* Right Section */
+            /* ============================================================== */
+            &__img{
+                width: fit-content;
+                margin-left: auto;
+                overflow: hidden;
+                border-radius: 15px 15px 15px 0px;
+            }
+        }
+    }
+}

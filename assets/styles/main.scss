@@ -1,0 +1,62 @@
+@import './reset.scss';
+@import './lib/mixins.scss';
+@import './lib/colors.scss';
+
+/* ========================================================================== */
+/* Fonts */
+/* ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+
+/* ========================================================================== */
+/* Main Settings */
+/* ========================================================================== */
+body{
+    background: #FAFAFA;
+    font-size: 16px;
+    color: #000;
+    &.noscroll{
+        overflow-y: hidden;
+    }
+}
+
+*{
+    font-family: 'Lora', serif;
+}
+
+/* ========================================================================== */
+/* Scrollbar */
+/* ========================================================================== */
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-track {
+    background-color: #ffffff00;
+}
+::-webkit-scrollbar-thumb {
+    background: $colorLightBlue;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: darken( $colorLightBlue, 5%); 
+}
+
+/* ========================================================================== */
+/* Selection */
+/* ========================================================================== */
+::selection{
+    background-color: $colorLightBlue;
+    color: #fff;
+}
+
+/* ========================================================================== */
+/* Containers */
+/* ========================================================================== */
+.container{
+    max-width: 1240px;
+    width: 100%;
+    margin: auto;
+    @media (max-width: 500px) {
+        max-width: 100%;
+        padding: 0px 20px;
+    }
+}
