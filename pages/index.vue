@@ -7,6 +7,8 @@
             <Welcome />
             <Activity />
             <Interactive />
+            <Contents />
+            <Sponsors />
         </div>
     </NuxtLayout>
 </template>

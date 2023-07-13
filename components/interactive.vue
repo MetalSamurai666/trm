@@ -27,6 +27,69 @@
 
                             <div class="item__info">Hujjatlarni topshirish</div>
                         </li>
+                        <li class="item">
+                            <nuxt-link to="/" class="item__logo">
+                                <img src="/logos/interactive/books.svg">
+                            </nuxt-link>
+                            
+                            <nuxt-link to="/" class="item__title">Litsenziyalash</nuxt-link>
+
+                            <div class="item__info">Hujjatlarni topshirish</div>
+                        </li>
+                        <li class="item">
+                            <nuxt-link to="/" class="item__logo">
+                                <img src="/logos/interactive/file.svg">
+                            </nuxt-link>
+                            
+                            <nuxt-link to="/" class="item__title">Litsenziyalash</nuxt-link>
+
+                            <div class="item__info">Hujjatlarni topshirish</div>
+                        </li>
+                        <li class="item">
+                            <nuxt-link to="/" class="item__logo">
+                                <img src="/logos/interactive/mail.svg">
+                            </nuxt-link>
+                            
+                            <nuxt-link to="/" class="item__title">Litsenziyalash</nuxt-link>
+
+                            <div class="item__info">Hujjatlarni topshirish</div>
+                        </li>
+                        <li class="item">
+                            <nuxt-link to="/" class="item__logo">
+                                <img src="/logos/interactive/pie.svg">
+                            </nuxt-link>
+                            
+                            <nuxt-link to="/" class="item__title">Litsenziyalash</nuxt-link>
+
+                            <div class="item__info">Hujjatlarni topshirish</div>
+                        </li>
+                        <li class="item">
+                            <nuxt-link to="/" class="item__logo">
+                                <img src="/logos/interactive/clipboard.svg">
+                            </nuxt-link>
+                            
+                            <nuxt-link to="/" class="item__title">Litsenziyalash</nuxt-link>
+
+                            <div class="item__info">Hujjatlarni topshirish</div>
+                        </li>
+                        <li class="item">
+                            <nuxt-link to="/" class="item__logo">
+                                <img src="/logos/interactive/document-approve.svg">
+                            </nuxt-link>
+                            
+                            <nuxt-link to="/" class="item__title">Litsenziyalash</nuxt-link>
+
+                            <div class="item__info">Hujjatlarni topshirish</div>
+                        </li>
+                        <li class="item">
+                            <nuxt-link to="/" class="item__logo">
+                                <img src="/logos/interactive/document-info.svg">
+                            </nuxt-link>
+                            
+                            <nuxt-link to="/" class="item__title">Litsenziyalash</nuxt-link>
+
+                            <div class="item__info">Hujjatlarni topshirish</div>
+                        </li>
                     </ul>
                 </div>
             </div>

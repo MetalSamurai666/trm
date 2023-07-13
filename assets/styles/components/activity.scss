@@ -12,17 +12,18 @@
     &__slider{
         padding-top: 15px;
         .splide{
-            padding-bottom: 80px;
             &__track{
                 padding-bottom: 80px;
             }
         }
         .slide{
+            @include tr(.2s);
             border-radius: 10px;
             background: #FFF;
-            box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.07);
             position: relative;
             &:hover{
+            box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.07);
+
                 .slide__btn{
                     display: block;
                     opacity: 1;

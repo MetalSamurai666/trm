@@ -32,6 +32,8 @@
             font-size: 16px;
             font-weight: 500;
             color: $colorLightBlue;
+            position: relative;
+            @include ul($b: -1px, $h: 1px, $bg: $colorLightBlue);
         }
     }
     /* ===================================================================== */
@@ -40,5 +42,76 @@
     &__right{
         flex-basis: 75%;
         max-width: 75%;
+    }
+    &__list{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px 25px;
+        .item{
+            
+            &__logo{
+                @include df-aic-jcc;
+                @include tr(.2s);
+                background-color: #5CAC5A;
+                width: 60px;
+                height: 60px;
+                border-radius: 10px;
+                &:hover{
+                    box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.185);
+                }
+            }
+            &__title{
+                @include tr(.2s);
+                margin: 15px 0px 8px;
+                font-size: 20px;
+                font-weight: 700;
+                color: #434343;
+                text-transform: uppercase;
+                @include oh(1);
+                &:hover{
+                    color: $colorLightBlue;
+                }
+            }
+            &__info{
+                font-size: 12px;
+                color: #434343;
+                text-transform: uppercase;
+            }
+            &:nth-child(2){
+                .item__logo{
+                    background-color: #225DA3;
+                }
+            }
+            &:nth-child(3){
+                .item__logo{
+                    background-color: #BD7431;
+                }
+            }
+            &:nth-child(4){
+                .item__logo{
+                    background-color: #5E92D0;
+                }
+            }
+            &:nth-child(5){
+                .item__logo{
+                    background-color: #D1AB60;
+                }
+            }
+            &:nth-child(6){
+                .item__logo{
+                    background-color: #B84521;
+                }
+            }
+            &:nth-child(7){
+                .item__logo{
+                    background-color: #7E5AAC;
+                }
+            }
+            &:last-child{
+                .item__logo{
+                    background-color: #BC4778;
+                }
+            }
+        }
     }
 }

@@ -32,9 +32,22 @@
     -webkit-line-clamp: $h;
     line-clamp: $h;
     -webkit-box-orient: vertical;
-    white-space: break-spaces;
 }
 
-@mixin ul($h: 1px, $bg: #000){
-    
+@mixin ul($b: -1px, $h: 1px, $bg: #000){
+    &::after{
+        @include tr(.2s);
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: $b;
+        width: 0%;
+        height: $h;
+        background-color: $bg;
+    }
+    &:hover{
+        &::after{
+            width: 100%;
+        }
+    }
 }

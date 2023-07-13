@@ -1,0 +1,30 @@
+@import '../main.scss';
+@import '@splidejs/splide/css/default';
+
+.sponsors{
+    &__slider{
+        .slide{
+            @include tr(.2s);
+            border-radius: 5px;
+            background: #fff;
+            &:hover{
+                box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.04);
+            }
+            &__box{
+                @include df-aic;
+                gap: 20px;
+                padding: 20px;
+            }
+            &__title{
+                a{
+                    @include tr(.2s);
+                }
+                &:hover{
+                    a{
+                        color: $colorLightBlue;
+                    }
+                }
+            }
+        }
+    }
+}
