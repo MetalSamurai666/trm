@@ -6,11 +6,55 @@
         padding: 25px 0px;
     }
     &__slider{
+        .slider{
+            &-arrows{
+                position: absolute;
+                left: 50%;
+                bottom: 0%;
+                width: 5%;
+                display: flex;
+                flex-direction: column;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    bottom: 100%;
+                    left: 0;
+                    width: 100%;
+                    height: 60px;
+                    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+                    background-color: #5E92D0;
+                }
+                &::after{
+                    content: '';
+                    position: absolute;
+                    top: -60px;
+                    left: 100%;
+                    width: 200px;
+                    height: 60px;
+                    background-color: $colorLightBlue;
+                    z-index: 2;
+                }
+            }
+            &-arrow{
+                position: unset;
+                width: 100%;
+                height: 45px;
+                border-radius: 0;
+                opacity: 1;
+                background-color: #023C80;
+                transform: unset;
+                svg{
+                    path{
+                        fill: #fff;
+                    }
+                }
+            }
+        }
         .slide{
             &__box{
-                @include df-aic;
+                @include df-aic-jcsb;
             }
-            &__left, &__right{
+            &__left{
                 flex-basis: 50%;
                 width: 50%;
             }
@@ -98,11 +142,30 @@
             /* ============================================================== */
             /* Right Section */
             /* ============================================================== */
+            &__right{
+                flex-basis: 45%;
+                width: 45%;
+            }
             &__img{
-                width: fit-content;
                 margin-left: auto;
-                overflow: hidden;
-                border-radius: 15px 15px 15px 0px;
+                position: relative;
+                // &::after{
+                //     content: '';
+                //     position: absolute;
+                //     bottom: -10px;
+                //     right: -10px;
+                //     width: 80px;
+                //     height: 90px;
+                //     background-color: #023C80;
+                //     border-radius: 0px 0px 15px 0px;
+                //     z-index: 1;
+                // }
+                img{
+                    width: 100%;
+                    border-radius: 15px 15px 15px 0px;
+                    z-index: 2;
+                    position: relative;
+                }
             }
         }
     }

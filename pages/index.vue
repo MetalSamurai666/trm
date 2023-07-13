@@ -4,7 +4,9 @@
 <template>
     <NuxtLayout>
         <div class="home">
-            <LazyWelcome />
+            <Welcome />
+            <Activity />
+            <Interactive />
         </div>
     </NuxtLayout>
 </template>

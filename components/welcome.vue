@@ -35,9 +35,19 @@
                         :options="{ 
                             type: 'fade',
                             rewind: true,
-                            pagination: false
+                            pagination: false,
+                            lazyLoad: true,
+                            classes: {
+                                arrows: 'splide__arrows slider-arrows',
+                                arrow : 'splide__arrow slider-arrow',
+                                prev  : 'splide__arrow--prev slider-prev',
+                                next  : 'splide__arrow--next slider-next',
+
+                                pagination: 'splide__pagination slider-pagination',
+                                page      : 'splide__pagination__page slider-page',
+                            },
                         }"
-                        aria-label="My Favorite Images"
+                        class="slider splide"
                     >
                         <SplideSlide 
                             class="splide__slide slide" 
@@ -65,7 +75,10 @@
                                 </div>
                                 <div class="slide__right">
                                     <div class="slide__img">
-                                        <img :src="`https://picsum.photos/id/6${index}/550`" />
+                                        <img 
+                                            :data-splide-lazy="`https://picsum.photos/id/6${index}/550`"
+                                            :src="`https://picsum.photos/id/6${index}/550`"
+                                        />
                                     </div>
                                 </div>
                             </div>

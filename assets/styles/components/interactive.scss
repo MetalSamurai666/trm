@@ -1,0 +1,44 @@
+@import '../main.scss';
+
+.interactive{
+    background-color: #fff;
+    &__box{
+        @include df-aic;
+        gap: 130px;
+        padding: 100px 0px;
+    }
+    /* ===================================================================== */
+    /* Left Section */
+    /* ===================================================================== */
+    &__left{
+        flex-basis: 25%;
+        max-width: 25%;
+    }
+    &__title{
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 150%;
+        @include oh(2);
+    }
+    &__info{
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 150%;
+        @include oh(4);
+        margin: 15px 0px 60px;
+    }
+    &__link{
+        a{
+            font-size: 16px;
+            font-weight: 500;
+            color: $colorLightBlue;
+        }
+    }
+    /* ===================================================================== */
+    /* Right Section */
+    /* ===================================================================== */
+    &__right{
+        flex-basis: 75%;
+        max-width: 75%;
+    }
+}
