@@ -125,6 +125,11 @@
                         </ul>
                     </div>
                 </div>
+                <div class="header__btn">
+                    <button>
+                        <img src="/logos/menu.svg">
+                    </button>
+                </div>
             </div>
         </div>
     </header>

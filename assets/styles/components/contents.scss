@@ -24,11 +24,14 @@
                 overflow: hidden;
                 border-radius: 10px;
                 width: 100%;
+                height: 320px;
                 display: flex;
                 img{
                     @include tr(.2s);
                     width: 100%;
                     height: 100%;
+                    object-position: center;
+                    object-fit: cover;
                 }
                 &:hover{
                     img{
@@ -51,8 +54,8 @@
                 @include tr(.2s);
                 @include oh(3);
                 font-size: 24px;
-                font-weight: 500;
-                line-height: 36px;
+                font-weight: 700;
+                line-height: 32px;
                 &:hover{
                     color: $colorLightBlue;
                 }
@@ -99,6 +102,7 @@
                 @include tr(.2s);
                 margin: 5px 0px 10px;
                 font-weight: 700;
+                @include oh(4);
                 &:hover{
                     color: $colorDarkBlue;
                 }
@@ -126,6 +130,56 @@
             height: 200px;
             img{
                 width: 100%;
+            }
+        }
+    }
+
+    /* ====================================================================== */
+    /* Mobile */
+    /* ====================================================================== */
+    @media (max-width: 500px) {
+        &__box{
+            padding: 40px 0px 20px;
+        }
+        &__title{
+            font-size: 20px;
+        }
+        &__body{
+            flex-direction: column;
+            margin-top: 20px;
+        }
+        &__left, &__mid, &__right{
+            flex-basis: unset;
+            width: 100%;
+        }
+        &__left{
+            .item{
+                &__img{
+                    height: 200px;
+                }
+                &__info{
+                    font-size: 12px;
+                    margin: 10px 0px 5px;
+                }
+                &__title{
+                    font-size: 20px;
+                    line-height: 24px;
+                }
+            }
+        }
+        &__list{
+            .item{
+                gap: 10px;
+                &__title{
+                    font-size: 15px;
+                    line-height: 18px;
+                }
+            }
+        }
+        &__video{
+            gap: 20px;
+            .item{
+                height: 150px;
             }
         }
     }

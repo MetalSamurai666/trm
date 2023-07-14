@@ -117,4 +117,61 @@
         font-size: 14px;
         line-height: 22px;
     }
+
+    /* ====================================================================== */
+    /* Mobile */
+    /* ====================================================================== */
+    @media (max-width: 500px) {
+        &__box{
+            padding: 40px 0px 20px;
+        }
+        &__top{
+            justify-content: flex-start;
+            a{
+                gap: 10px;
+                img{
+                    width: 40px;
+                    height: 40px;
+                }
+                span{
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+            }
+        }
+        &__mid{
+            padding: 40px 0px 20px;
+        }
+        &__list{
+            flex-direction: column;
+            gap: 30px;
+            .item{
+                flex-basis: unset;
+                width: 100%;
+                gap: 10px;
+                &__title{
+                    font-size: 16px;
+                }
+                &__list{
+                    gap: 7px;
+                    .item{
+                        &__link{
+                            a{
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &__socials{
+            margin-top: 30px;
+        }
+        &__bot{
+            padding-top: 20px;
+        }
+        &__copyright{
+            font-size: 12px;
+        }
+    }
 }

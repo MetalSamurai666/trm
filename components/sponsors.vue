@@ -20,7 +20,19 @@ import { Splide, SplideSlide } from "@splidejs/vue-splide";
         },
         {
             slug: '/',
-            title: 'O‘zbekiston Respublikasi Hukumat portalis'
+            title: 'O‘zbekiston Respublikasi Hukumat portali'
+        },
+        {
+            slug: '/',
+            title: 'O‘zbekiston Respublikasi Hukumat portali'
+        },
+        {
+            slug: '/',
+            title: 'O‘zbekiston Respublikasi Hukumat portali'
+        },
+        {
+            slug: '/',
+            title: 'O‘zbekiston Respublikasi Hukumat portali'
         },
     ])
 </script>
@@ -36,7 +48,16 @@ import { Splide, SplideSlide } from "@splidejs/vue-splide";
                         pagination: false,
                         arrows: false,
                         perPage: 5.5,
-                        gap: 20
+                        perMove: 1,
+                        gap: 20,
+                        autoplay: true,
+                        interval: 3000,
+                        breakpoints: {
+                            500: {
+                                perPage: 1.5,
+                                gap: 10
+                            }
+                        }
                     }"
                         class="slider splide"
                 >

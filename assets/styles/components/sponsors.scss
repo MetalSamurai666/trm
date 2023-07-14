@@ -18,6 +18,12 @@
                 gap: 20px;
                 padding: 20px;
             }
+            &__logo{
+                img{
+                    width: 50px;
+                    height: 50px;
+                }
+            }
             &__title{
                 a{
                     @include tr(.2s);
@@ -26,6 +32,27 @@
                     a{
                         color: $colorLightBlue;
                     }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 500px ) {
+        &__slider{
+            .slide{
+                transition: unset;
+                &__box{
+                    padding: 15px;
+                    gap: 10px;
+                }
+                &__logo{
+                    img{
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+                &__title{
+                    font-size: 14px;
                 }
             }
         }

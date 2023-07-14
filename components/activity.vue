@@ -3,19 +3,19 @@
 
     const slider = ref([
         {   
-            link: '/',
+            slug: '/',
             logo: 'education',
             title: 'O’quv-metodik komplekslarni ishlab chiqish va joriy etish',
             info: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor'
         },
         {   
-            link: '/',
+            slug: '/',
             logo: 'bookmark',
             title: 'Ta’lim sifatini baholash va monitoring qilish',
             info: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor'
         },
         {   
-            link: '/',
+            slug: '/',
             logo: 'book',
             title: 'Pedagogik texnologiyalar',
             info: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor'
@@ -51,6 +51,13 @@
                                     pagination: 'splide__pagination slider-pagination',
                                     page      : 'splide__pagination__page slider-page',
                                 },
+                                breakpoints: {
+                                    500: {
+                                        perPage: 1,
+                                        gap: 10,
+                                        pagination: true,
+                                    }
+                                }
                             }"
                             class="slider splide"
                         >
@@ -63,14 +70,14 @@
                                     <div class="slide__logo">
                                         <img :src="`/logos/${item?.logo}.svg`" alt="">
                                     </div>
-                                    <div class="slide__title">
+                                    <nuxt-link :to="item?.slug" class="slide__title">
                                         {{ item?.title }}
-                                    </div>
+                                    </nuxt-link>
                                     <div class="slide__info">{{ item?.info }}</div>
                                 </div>
 
                                 <div class="slide__btn">
-                                    <nuxt-link :to="item?.link">
+                                    <nuxt-link :to="item?.slug">
                                         <img src="/logos/arrow-left.svg">
                                     </nuxt-link>
                                 </div>

@@ -46,6 +46,15 @@
                                 pagination: 'splide__pagination slider-pagination',
                                 page      : 'splide__pagination__page slider-page',
                             },
+                            breakpoints:{
+                                500:{
+                                    arrows: false,
+                                    autoplay: true,
+                                    interval: 2500,
+                                    pauseOnHover: false,
+                                    pauseOnFocus: false
+                                }
+                            }
                         }"
                         class="slider splide"
                     >

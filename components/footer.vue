@@ -100,15 +100,15 @@
                                     <div class="item__logo">
                                         <img src="/logos/location.svg">
                                     </div>
-                                    <a href="/">Toshkent shahri, Amir temur ko’chasi 113 uy</a>
+                                    <a href="/"><span>Toshkent shahri, Amir temur ko’chasi 113 uy</span></a>
                                 </li>
                                 <li class="item__link">
                                     <div class="item__logo">
                                         <img src="/logos/phone.svg">
                                     </div>
                                     <div class="item__info">
-                                        <a href="tel:+998 71 342-65-75">+998 71 342-65-75</a>
-                                        <a href="tel:+998 71 542-21-56">+998 71 542-21-56</a>
+                                        <a href="tel:+998 71 342-65-75"><span>+998 71 342-65-75</span></a>
+                                        <a href="tel:+998 71 542-21-56"><span>+998 71 542-21-56</span></a>
                                     </div>
                                 </li>
                                 <li class="item__link">
@@ -116,8 +116,8 @@
                                         <img src="/logos/message.svg">
                                     </div>
                                     <div class="item__info">
-                                        <a href="mailto:info@trm.uz">info@trm.uz</a>
-                                        <a href="mailto:support@trm.uz">support@trm.uz</a>
+                                        <a href="mailto:info@trm.uz"><span>info@trm.uz</span></a>
+                                        <a href="mailto:support@trm.uz"><span>support@trm.uz</span></a>
                                     </div>
                                 </li>
                             </ul>
