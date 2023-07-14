@@ -1,0 +1,114 @@
+@import '../main.scss';
+
+.footer{
+    background-color: $colorLightBlue;
+    color: #fff;
+    background-image: url('/images/footer-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    a{
+        color: #FFF;
+        
+    }
+    &__box{
+        padding: 60px 0px 40px;
+    }
+    /* ====================================================================== */
+    /* Top Section */
+    /* ====================================================================== */
+    &__top{
+        @include df-aic-jcc;
+    }
+    &__logo{
+        @include df-aic;
+        span{
+            max-width: 300px;
+            text-transform: uppercase;
+        }
+    }
+    /* ====================================================================== */
+    /* Mid Section */
+    /* ====================================================================== */
+    &__mid{
+        padding: 50px 0px 40px;
+    }
+    &__list{
+        @include df-jcsb;
+        gap: 25px;
+        .item{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex-basis: 25%;
+            width: 25%;
+            &__title{
+                font-size: 18px;
+                font-weight: 700;
+                text-transform: uppercase;
+                white-space: nowrap;
+            }
+            &__list{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .item{
+                    &__link{
+                        font-size: 15px;
+                        line-height: 20px;
+                        a{
+                            position: relative;
+                            span{
+                                @include ul(-1px, 1px,#fff)
+                            }
+                        }
+                    }
+                }
+            }
+            &.contacts{
+                .item__list{
+                    .item{
+                        &__logo{
+                            img{
+                                width: 24px;
+                                height: 24px;
+                                filter: invert(1);
+                            }
+                        }
+                        &__link{
+                            display: flex;
+                            gap: 15px;
+                        }
+                        &__info{
+                            display: flex;
+                            flex-direction: column;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__socials{
+        @include df-aic-jcc;
+        gap: 15px;
+        margin-top: 45px;
+        .item{
+            img{
+                width: 24px;
+                filter: invert(1);
+            }
+        }
+    }
+    /* ====================================================================== */
+    /* Bottom Section */
+    /* ====================================================================== */
+    &__bot{
+        padding-top: 35px;
+        border-top: 1px solid #ffffff4d;
+    }
+    &__copyright{
+        text-align: center;
+        font-size: 14px;
+        line-height: 22px;
+    }
+}

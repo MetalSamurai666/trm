@@ -69,27 +69,27 @@
                         <ul class="header__socials header__list">
                             <li>
                                 <a href="#">
-                                    <img src="/logos/facebook.svg">
+                                    <img src="/logos/socials/facebook.svg">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="/logos/instagram.svg">
+                                    <img src="/logos/socials/instagram.svg">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="/logos/telegram.svg">
+                                    <img src="/logos/socials/telegram.svg">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="/logos/twitter.svg">
+                                    <img src="/logos/socials/twitter.svg">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="/logos/youtube.svg">
+                                    <img src="/logos/socials/youtube.svg">
                                 </a>
                             </li>
                         </ul>
