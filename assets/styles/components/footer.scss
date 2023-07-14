@@ -22,6 +22,12 @@
     }
     &__logo{
         @include df-aic;
+        gap: 15px;
+        line-height: 22px;
+        img{
+            width: 60px;
+            height: 60px;
+        }
         span{
             max-width: 300px;
             text-transform: uppercase;

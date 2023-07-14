@@ -2,6 +2,9 @@
 @import '@splidejs/splide/css/default';
 
 .sponsors{
+    &__box{
+        padding: 50px 0px;
+    }
     &__slider{
         .slide{
             @include tr(.2s);
