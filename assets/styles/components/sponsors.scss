@@ -38,6 +38,9 @@
     }
 
     @media (max-width: 500px ) {
+        &__box{
+            padding: 20px 0px;
+        }
         &__slider{
             .slide{
                 transition: unset;

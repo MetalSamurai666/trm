@@ -1,0 +1,73 @@
+@import '../main.scss';
+
+.bread{
+    background-color: $colorLightBlue;
+    color: #fff;
+    a{
+        color: #fff;
+    }
+    &__box{
+        padding: 40px 0px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    &__title{
+        font-size: 24px;
+        font-weight: 600;
+    }
+    &__list{
+        @include df-aic;
+        gap: 10px;
+        .item{
+            @include df-aic;
+            &__logo{
+                display: flex;
+                margin-left: 10px;
+            }
+            &__link{
+                &.router-link-exact-active{
+                    span{
+                        position: relative;
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            bottom: -1px;
+                            width: 100%;
+                            height: 1px;
+                            background-color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 500px) {
+        ::-webkit-scrollbar-thumb {
+            background: #fff;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: darken( #fff, 5%); 
+        }
+        &__box{
+            padding: 20px 0px;
+        }
+        &__title{
+            font-size: 20px;
+        }
+        &__list{
+            overflow-x: scroll;
+            padding-bottom: 5px;
+            font-size: 14px;
+            .item{
+                &__link{
+                    white-space: nowrap;
+                }
+            }
+            
+        }
+    }
+}

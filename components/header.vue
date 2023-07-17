@@ -1,4 +1,13 @@
 <script setup>
+    import { useMenuStore } from '~/store/menu';
+
+/* Mobile Menu */
+    const menuStore = useMenuStore()
+    function openMenu() {
+        menuStore.menuChange()
+    }
+    
+
     const nav = ref([
         {
             link: '/',
@@ -31,10 +40,11 @@
             list: []
         },
         {
-            link: '/',
+            link: '/contacts',
             title: 'Aloqa'
         }
     ])
+
 </script>
 
 <template>
@@ -126,7 +136,7 @@
                     </div>
                 </div>
                 <div class="header__btn">
-                    <button>
+                    <button @click="openMenu">
                         <img src="/logos/menu.svg">
                     </button>
                 </div>

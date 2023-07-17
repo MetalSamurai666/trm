@@ -20,25 +20,6 @@
         flex-basis: 33.3333%;
         width: 33.3333%;
         .item{
-            &__img{
-                overflow: hidden;
-                border-radius: 10px;
-                width: 100%;
-                height: 320px;
-                display: flex;
-                img{
-                    @include tr(.2s);
-                    width: 100%;
-                    height: 100%;
-                    object-position: center;
-                    object-fit: cover;
-                }
-                &:hover{
-                    img{
-                        transform: scale(1.05);
-                    }
-                }
-            }
             &__info{
                 @include df-jcsb;
                 margin: 15px 0px 10px;
@@ -73,45 +54,6 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-        .item{
-            @include df-aic;
-            gap: 20px;
-            &__img{
-                overflow: hidden;
-                border-radius: 10px;
-                display: flex;
-                width: 150px;
-                img{
-                    @include tr(.2s);
-                    width: 100%;
-                    height: 100%;
-                }
-                &:hover{
-                    img{
-                        transform: scale(1.05);
-                    }
-                }
-            }
-            &__cat{
-                font-size: 12px;
-                font-weight: 500;
-                @include oh(1);
-                color: $colorDarkBlue;
-            }
-            &__title{
-                @include tr(.2s);
-                margin: 5px 0px 10px;
-                font-weight: 700;
-                @include oh(4);
-                &:hover{
-                    color: $colorDarkBlue;
-                }
-            }
-            &__date{
-                font-size: 12px;
-                color: #4F547B;
-            }
-        }
     }
     /* ====================================================================== */
     /* Right Section */
@@ -164,15 +106,6 @@
                 &__title{
                     font-size: 20px;
                     line-height: 24px;
-                }
-            }
-        }
-        &__list{
-            .item{
-                gap: 10px;
-                &__title{
-                    font-size: 15px;
-                    line-height: 18px;
                 }
             }
         }

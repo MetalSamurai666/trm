@@ -1,5 +1,35 @@
 <script setup>
+    const big = ref({
+        slug: '/asd/zxc',
+        cat: 'E’lonlar',
+        img: '',
+        title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi',
+        date: '1 iyul 2023 y.'
+    })
 
+    const list = ref([
+        {
+            slug: '/asd/zxc',
+            cat: 'E’lonlar',
+            img: '',
+            title: 'Ta’lim sifatini baholash va monitoring qilish',
+            date: '1 iyul 2023 y.'
+        },
+        {
+            slug: '/asd/zxc',
+            cat: 'yangiliklar',
+            img: '',
+            title: 'finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi',
+            date: '12 iyun 2023 y.'
+        },
+        {
+            slug: '/asd/zxc',
+            cat: 'Ta’lim',
+            img: '',
+            title: 'o’quv-metodik komplekslarni ishlab chiqish va joriy etish',
+            date: '6 aprel 2023 y.'
+        },
+    ])
 </script>
 
 <template>
@@ -11,78 +41,19 @@
                 </div>
                 <div class="contents__body">
                     <div class="contents__left">
-                        <div class="item">
-                            <nuxt-link to="/" class="item__img">
-                                <img src="/images/mini-placeholder.jpg">
-                            </nuxt-link>
-
-                            <div class="item__info">
-                                <div class="item__cat">E'lonlar</div>
-                                <div class="item__date">12:15 13 iyun 2023 y.</div>
-                            </div>
-
-                            <nuxt-link to="/" class="item__title">
-                                Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi
-                            </nuxt-link>
-                        </div>
+                        <Card
+                            class="big"
+                            :card="big"
+                        />
                     </div>
 
                     <div class="contents__mid">
                         <ul class="contents__list">
-                            <li class="item">
-                                <div class="item__left">
-                                    <nuxt-link to="/" class="item__img">
-                                        <img src="/images/mini-placeholder.jpg">
-                                    </nuxt-link>
-                                </div>
-
-                                <div class="item__right">
-                                    <div class="item__cat">E'lonlar</div>
-                                    
-                                    <nuxt-link to="/" class="item__title">
-                                        Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi
-                                    </nuxt-link>
-                                    
-                                    <div class="item__date">12 iyun 2023 y.</div>
-                                </div>
-
-                            </li>
-                            <li class="item">
-                                <div class="item__left">
-                                    <nuxt-link to="/" class="item__img">
-                                        <img src="/images/mini-placeholder.jpg">
-                                    </nuxt-link>
-                                </div>
-
-                                <div class="item__right">
-                                    <div class="item__cat">E'lonlar</div>
-                                    
-                                    <nuxt-link to="/" class="item__title">
-                                        Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi
-                                    </nuxt-link>
-                                    
-                                    <div class="item__date">12 iyun 2023 y.</div>
-                                </div>
-
-                            </li>
-                            <li class="item">
-                                <div class="item__left">
-                                    <nuxt-link to="/" class="item__img">
-                                        <img src="/images/mini-placeholder.jpg">
-                                    </nuxt-link>
-                                </div>
-
-                                <div class="item__right">
-                                    <div class="item__cat">E'lonlar</div>
-                                    
-                                    <nuxt-link to="/" class="item__title">
-                                        Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi
-                                    </nuxt-link>
-                                    
-                                    <div class="item__date">12 iyun 2023 y.</div>
-                                </div>
-
-                            </li>
+                            <Card 
+                                v-for="item, index of list"
+                                :key="index"
+                                :card="item"
+                            />
                         </ul>
                     </div>
                     

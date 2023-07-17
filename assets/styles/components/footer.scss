@@ -82,7 +82,7 @@
                             }
                         }
                         &__link{
-                            display: flex;
+                            @include df-aic;
                             gap: 15px;
                         }
                         &__info{

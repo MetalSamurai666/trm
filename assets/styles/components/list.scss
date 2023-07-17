@@ -1,0 +1,23 @@
+@import '../main.scss';
+
+.list{
+    &__box{
+        padding: 40px 0px;
+    }
+    &__list{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    @media (max-width: 500px) {
+        &__box{
+            padding: 20px 0px;
+        }
+        &__list{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+    }
+}

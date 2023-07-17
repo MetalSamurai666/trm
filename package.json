@@ -19,6 +19,8 @@
     "vue": "latest"
   },
   "dependencies": {
-    "@splidejs/vue-splide": "^0.6.12"
+    "@pinia/nuxt": "^0.4.11",
+    "@splidejs/vue-splide": "^0.6.12",
+    "pinia": "^2.1.4"
   }
 }
