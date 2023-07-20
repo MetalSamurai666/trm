@@ -1,7 +1,7 @@
 <script setup>
 /* Imports */
-    import { storeToRefs } from 'pinia'
-    import { useMenuStore } from '~/store/menu';
+    import { storeToRefs } from 'pinia';
+    import { useMenuStore } from '@/store/menu';
 
 /* Consts */
 

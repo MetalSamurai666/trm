@@ -70,7 +70,7 @@
                     </div>
                     <div class="article__right">
                         <ul class="article__more">
-                            <Card 
+                            <CardsCard
                                 v-for="item, index of list"
                                 :key="index"
                                 :card="item"

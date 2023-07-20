@@ -37,6 +37,7 @@
                             rewind: true,
                             pagination: false,
                             lazyLoad: true,
+                            autoplay: true,
                             classes: {
                                 arrows: 'splide__arrows slider-arrows',
                                 arrow : 'splide__arrow slider-arrow',

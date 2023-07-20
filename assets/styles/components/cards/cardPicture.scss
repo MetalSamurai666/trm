@@ -1,0 +1,49 @@
+@import '../../main.scss';
+
+.picture{
+    &__box{
+        width: 100%;
+        height: 220px;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        &:hover{
+            .picture__img{
+                transform: scale(1.02);
+                filter: blur(5px);
+            }
+            .picture__title{
+                opacity: 1;
+                span{
+                    transform: translateY(0);
+                }
+            }
+        }
+    }
+    &__img{
+        width: 100%;
+        height: 100%;
+        object-position: center;
+        object-fit: cover;
+        @include tr(.2s);
+    }
+    &__title{
+        @include tr(.2s);
+        @include df-aic-jcc;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        font-size: 20px;
+        font-weight: 500;
+        background-color: #225ca36c;
+        color: #fff;
+        span{
+            @include tr(.2s);
+            transform: translateY(10px);
+        }
+    }
+}

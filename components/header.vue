@@ -1,46 +1,127 @@
 <script setup>
-    import { useMenuStore } from '~/store/menu';
+    // import { storeToRefs } from 'pinia';
+    import { useMenuStore } from '@/store/menu';
+    // import { useMainStore } from '~/store/main';
+    const menuStore = useMenuStore()
+    // const mainStore = useMainStore()
+    // const { cats }  = storeToRefs(mainStore)
 
 /* Mobile Menu */
-    const menuStore = useMenuStore()
     function openMenu() {
         menuStore.menuChange()
     }
-    
 
     const nav = ref([
         {
-            link: '/',
+            slug: '/',
             title: 'Markaz',
-            list: []
+            list: [
+                {
+                    slug: 'zexc',
+                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                },
+                {
+                    slug: 'zexc',
+                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                },
+                {
+                    slug: 'zexc',
+                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                },
+            ]
         },
         {
-            link: '/',
+            slug: '/',
             title: 'Faoliyat',
-            list: []
+            list: [
+                {
+                    slug: 'zexc',
+                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                },
+                {
+                    slug: 'zexc',
+                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                },
+                {
+                    slug: 'zexc',
+                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                }
+            ,]
         },
         {
-            link: '/',
+            slug: '/',
             title: 'Interaktiv xizmatlar',
-            list: []
+            list: [
+                {
+                    slug: 'zexc',
+                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                },
+                {
+                    slug: 'zexc',
+                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                },
+                {
+                    slug: 'zexc',
+                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                },
+            ]
         },
         {
-            link: '/',
+            slug: '/',
             title: 'Hujjatlar',
-            list: []
+            list: [ 
+                {
+                    slug: 'zexc',
+                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                },
+                {
+                    slug: 'zexc',
+                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                },
+                {
+                    slug: 'zexc',
+                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                },
+            ]
         },
         {
-            link: '/',
+            slug: '/',
             title: 'Hamkorlik',
-            list: []
+            list: [ 
+                {
+                    slug: 'zexc',
+                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                },
+                {
+                    slug: 'zexc',
+                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                },
+                {
+                    slug: 'zexc',
+                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                },
+            ]
         },
         {
-            link: '/',
+            slug: '',
             title: 'Axborot xizmati',
-            list: []
+            list: [ 
+                {
+                    slug: 'questions',
+                    title: 'Savollar'
+                },
+                {
+                    slug: 'gallery',
+                    title: 'Galereya'
+                },
+                {
+                    slug: 'zexc',
+                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                },
+            ]
         },
         {
-            link: '/contacts',
+            slug: '/contacts',
             title: 'Aloqa'
         }
     ])
@@ -117,20 +198,33 @@
                             </li>
                         </ul>
 
-                        <div class="header__lang">
+                        <!-- <div class="header__lang">
                             <button>
                                 <span>O’z</span>
                                 <img src="/logos/arrow-down.svg">
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="header__bot">
                         <ul class="header__nav">
-                            <li v-for="item, index of nav" :key="index">
-                                <nuxt-link :to="item.link">
-                                    <span>{{ item.title }}</span>
-                                    <img src="/logos/arrow-down.svg" v-if="item.list">
+                            <li class="item" v-for="item, index of nav" :key="index">
+                                <nuxt-link class="item__link" :to="item?.slug">
+                                    <span>{{ item?.title }}</span>
+                                    <img src="/logos/arrow-down.svg" v-if="item?.list">
                                 </nuxt-link>
+
+                                <div class="item__list">
+                                    <ul class="list">
+                                        <li class="list__item"
+                                            v-for="subItem, index of item?.list"
+                                            :key="index"
+                                        >
+                                            <nuxt-link :to="subItem?.slug">
+                                                {{ subItem?.title }}
+                                            </nuxt-link>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                         </ul>
                     </div>

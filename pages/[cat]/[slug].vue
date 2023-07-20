@@ -5,7 +5,9 @@
 <template>
     <nuxt-layout>
         <div class="asd">
-            <Bread />
+            <Bread 
+                :breadTitle="'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'"
+            />
             <Article />
             <Sponsors />
         </div>

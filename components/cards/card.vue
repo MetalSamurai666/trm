@@ -26,5 +26,5 @@
 </template>
 
 <style lang="scss">
-@import '@/assets/styles/components/card.scss';
+@import '@/assets/styles/components/cards/card.scss';
 </style>

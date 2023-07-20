@@ -9,7 +9,7 @@
         <div class="container">
             <div class="list__box">
                 <ul class="list__list">
-                    <Card
+                    <CardsCard
                         class="big listly"
                         v-for="item, index of list"
                         :key="index"

@@ -1,0 +1,65 @@
+@import '../main.scss';
+
+.modal{
+    position: fixed;
+    bottom: 0%;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
+    opacity: 0;
+    @include df-aic-jcc;
+    
+    &__bg{
+        background: #00000052;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    &__box{
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        z-index: 15;
+        width: 80vw;
+        @include tr(.3s);
+        transform: translateY(10px);
+        position: relative;
+    }
+    &__img{
+        width: 100%;
+        height: auto;
+        object-position: center;
+        object-fit: cover;
+    }
+    &__title{
+        font-size: 24px;
+        text-align: center;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+    &__close{
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        background-color: $colorLightBlue;
+        display: flex;
+        border-radius: 10px;
+        padding: 5px;
+        img{
+            width: 30px;
+        }
+    }
+    &.active{
+        z-index: 10;
+        opacity: 1;
+        .modal__box{
+            transform: translateY(0px);
+        }
+    }
+}

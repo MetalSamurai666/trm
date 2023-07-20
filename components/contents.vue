@@ -41,7 +41,7 @@
                 </div>
                 <div class="contents__body">
                     <div class="contents__left">
-                        <Card
+                        <CardsCard
                             class="big"
                             :card="big"
                         />
@@ -49,7 +49,7 @@
 
                     <div class="contents__mid">
                         <ul class="contents__list">
-                            <Card 
+                            <CardsCard
                                 v-for="item, index of list"
                                 :key="index"
                                 :card="item"

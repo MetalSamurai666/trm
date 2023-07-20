@@ -1,4 +1,23 @@
 <script setup>
+    import { storeToRefs } from "pinia";
+    import { useMainStore } from "~/store/main";
+    const mainStore = useMainStore()
+
+    const route = useRoute()
+    
+    const cat = ref({})
+    
+    const getData = async (lang) => {
+        let res = await mainStore.getOneCat(route.params.cat, lang)
+        if (res.data.value) {
+            cat.value = res.data.value
+            console.log(cat.value);
+        }
+    }
+
+    onMounted(() => {
+        getData('uz')
+    })
     const list = ref([
         {
             slug: '/asda/zdasdaxc',
@@ -62,7 +81,9 @@
 <template>
     <nuxt-layout>
         <div class="category">
-            <Bread />
+            <Bread 
+                :breadTitle="'Markaz'"
+            />
             <List 
                 :list="list"
             />

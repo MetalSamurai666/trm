@@ -1,0 +1,60 @@
+@import '../main.scss';
+
+.qa{
+    &__box{
+        padding: 40px 0px;
+    }
+    &__list{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .item{
+            &__box{
+                background-color: #fff;
+                border: 1px solid #BFBFBF;
+                border-radius: 10px;
+                overflow: hidden;
+                @include tr(.3s);
+            }
+            &__top{
+                padding: 20px;
+                @include df-aic-jcsb;
+            }
+            &__question{
+                padding-right: 20px;
+                font-weight: 600;
+                line-height: normal;
+            }
+            &__arrow{
+                    @include tr(.3s);
+                img{
+                    width: 24px;
+                    height: 24px;
+                    filter: invert(1);
+                }
+            }
+            &__bot{
+                @include tr(.45s);
+                background-color: #EAEAEA;
+                max-height: 0px;
+                overflow-y: hidden;
+                padding: 0px 20px;
+            }
+            &__answer{
+                line-height: normal;
+            }
+            &.active{
+                .item__box{
+                    border: 1px solid  $colorLightBlue;
+                }
+                .item__bot{
+                    max-height: 500px;
+                    padding: 20px 20px;
+                }
+                .item__arrow{
+                    transform: rotate(90deg);
+                }
+            }
+        }
+    }
+}

@@ -1,8 +1,18 @@
 <script setup>
+  import { useMainStore } from "@/store/main";
 
-onMounted(() => {
-  document.title = 'TRM'
-})
+  const mainStore = useMainStore()
+  // const { locale } = useI18n()
+
+  const getData = async (val) => {
+    await mainStore.getSuperCats(val)
+  }
+
+  onMounted(() => {
+    document.title = 'TRM'
+    getData('uz')
+  })
+
 </script>
 
 <template>

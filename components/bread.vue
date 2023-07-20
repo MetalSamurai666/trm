@@ -1,12 +1,16 @@
 <script setup>
     const route = useRoute()
+
+    defineProps({
+        breadTitle: String
+    })
 </script>
 
 <template>
     <div class="bread">
         <div class="container">
             <div class="bread__box">
-                <div class="bread__title">Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi</div>
+                <div class="bread__title">{{ breadTitle }}</div>
 
                 <ul class="bread__list">
                     <li class="item">

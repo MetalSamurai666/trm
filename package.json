@@ -3,13 +3,14 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev -o",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/i18n": "^8.0.0-beta.13",
     "@types/node": "^18",
     "nuxt": "^3.6.0",
     "sass": "^1.63.6",
@@ -21,6 +22,7 @@
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
     "@splidejs/vue-splide": "^0.6.12",
-    "pinia": "^2.1.4"
+    "pinia": "^2.1.4",
+    "vue-easy-lightbox": "^1.16.0"
   }
 }
