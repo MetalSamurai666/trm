@@ -44,6 +44,9 @@ const list = ref([
     <NuxtLayout>
         <div class="gallery">
             <ImgModal />
+            <Bread
+                :breadTitle="'Galereya'"
+            />
             <Images 
                 :list="list"
             />
