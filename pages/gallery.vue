@@ -45,7 +45,7 @@ const list = ref([
         <div class="gallery">
             <ImgModal />
             <Bread
-                :breadTitle="'Galereya'"
+                :bread-title="'Galereya'"
             />
             <Images 
                 :list="list"

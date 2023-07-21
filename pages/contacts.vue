@@ -5,6 +5,9 @@
 <template>
     <nuxt-layout>
         <div class="contacts">
+            <Bread 
+                :bread-title="'Aloqa'"
+            />
             <Info />
             <Sponsors />
         </div>

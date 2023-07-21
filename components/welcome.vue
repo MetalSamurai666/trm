@@ -38,6 +38,7 @@
                             pagination: false,
                             lazyLoad: true,
                             autoplay: true,
+                            pauseOnFocus: false,
                             classes: {
                                 arrows: 'splide__arrows slider-arrows',
                                 arrow : 'splide__arrow slider-arrow',

@@ -24,7 +24,7 @@
 
                     <li class="item">
                         <nuxt-link :to="route?.fullPath" class="item__link">
-                            <span>Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi</span>
+                            <span>{{ breadTitle }}</span>
                         </nuxt-link>
                     </li>
                 </ul>

@@ -47,7 +47,7 @@
     <NuxtLayout>
         <div class="questions">
             <Bread 
-                :breadTitle="'Savollar'"
+                :bread-title="'Savollar'"
             />
             <Qa 
                 :list="list"

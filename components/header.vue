@@ -13,7 +13,7 @@
 
     const nav = ref([
         {
-            slug: '/',
+            slug: '',
             title: 'Markaz',
             list: [
                 {
@@ -31,7 +31,7 @@
             ]
         },
         {
-            slug: '/',
+            slug: '',
             title: 'Faoliyat',
             list: [
                 {
@@ -49,7 +49,7 @@
             ,]
         },
         {
-            slug: '/',
+            slug: '',
             title: 'Interaktiv xizmatlar',
             list: [
                 {
@@ -67,7 +67,7 @@
             ]
         },
         {
-            slug: '/',
+            slug: '',
             title: 'Hujjatlar',
             list: [ 
                 {
@@ -85,7 +85,7 @@
             ]
         },
         {
-            slug: '/',
+            slug: '',
             title: 'Hamkorlik',
             list: [ 
                 {
@@ -115,13 +115,13 @@
                     title: 'Galereya'
                 },
                 {
-                    slug: 'zexc',
-                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                    slug: 'files',
+                    title: 'Fayllar'
                 },
             ]
         },
         {
-            slug: '/contacts',
+            slug: 'contacts',
             title: 'Aloqa'
         }
     ])
@@ -208,7 +208,7 @@
                     <div class="header__bot">
                         <ul class="header__nav">
                             <li class="item" v-for="item, index of nav" :key="index">
-                                <nuxt-link class="item__link" :to="item?.slug">
+                                <nuxt-link class="item__link" :to="`/${item?.slug}`">
                                     <span>{{ item?.title }}</span>
                                     <img src="/logos/arrow-down.svg" v-if="item?.list">
                                 </nuxt-link>
