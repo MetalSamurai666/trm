@@ -1,4 +1,8 @@
 <script setup>
+    import { useMainStore } from "@/store/main"
+
+    const mainStore = useMainStore()
+
     defineProps({
         card: Object
     })
@@ -16,17 +20,18 @@
             <div class="file__right">
                 <ul class="file__btns">
                     <li 
-                        v-for="item of card?.files"
+                        v-for="item of card?.docs"
                         :key="item?.slug"
                         :class="
-                            item.slug.split('.').slice(-1) == 'json' ? 'item json' :
-                            item?.slug.split('.')?.slice(-1) == 'xml' ? 'item xml': 
-                            item?.slug.split('.')?.slice(-1) == 'csv' ? 'item csv': 
-                            item?.slug.split('.')?.slice(-1) == 'xls' ? 'item xls' 
+                            item?.name.split('.')?.slice(-1)[0] == 'json' ? 'item json' :
+                            item?.name.split('.')?.slice(-1)[0] == 'xml' ? 'item xml' : 
+                            item?.name.split('.')?.slice(-1)[0] == 'csv' ? 'item csv' : 
+                            item?.name.split('.')?.slice(-1)[0] == 'xls' ? 'item xls' :
+                            item?.name.split('.')?.slice(-1)[0] == 'xlsx' ? 'item xlsx' 
                         : 'item'"
                     >
-                        <a :href="item?.slug">
-                            <img :src="`/logos/${item?.slug.split('.')?.slice(-1)}.svg`">
+                        <a :href="`${mainStore.url}/${item?.url}`">
+                            <img :src="`/logos/${item?.url.split('.')?.slice(-1)}.svg`">
                         </a>
                     </li>
                 </ul>

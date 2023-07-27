@@ -2,15 +2,22 @@
   import { useMainStore } from "@/store/main";
 
   const mainStore = useMainStore()
-  // const { locale } = useI18n()
+  const { locale } = useI18n()
 
   const getData = async (val) => {
     await mainStore.getSuperCats(val)
   }
 
+  watch(
+    () => locale.value,
+    () => {
+      getData(locale.value)
+    }
+  )
+
   onMounted(() => {
     document.title = 'TRM'
-    getData('uz')
+    getData(locale.value)
   })
 
 </script>

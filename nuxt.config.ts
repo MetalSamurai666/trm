@@ -13,6 +13,11 @@ export default defineNuxtConfig({
     strategy: 'no_prefix',
     locales: [
       {
+        code: "uz",
+        iso: "uz",
+        name: "O`zb",
+      },
+      {
         code: "ru",
         iso: "ru",
         name: "Ру",
@@ -21,11 +26,6 @@ export default defineNuxtConfig({
         code: "en",
         iso: "en",
         name: "Eng",
-      },
-      {
-        code: "uz",
-        iso: "uz",
-        name: "O`zb",
       },
     ],
     defaultLocale: "uz"

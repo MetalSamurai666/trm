@@ -33,9 +33,10 @@
     }
     &__img{
         width: 100%;
-        height: auto;
+        max-height: 80vh;
         object-position: center;
         object-fit: cover;
+        border-radius: 10px;
     }
     &__title{
         font-size: 24px;

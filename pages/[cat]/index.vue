@@ -2,6 +2,7 @@
     import { storeToRefs } from "pinia";
     import { useMainStore } from "~/store/main";
     const mainStore = useMainStore()
+    const { locale } = useI18n()
 
     const route = useRoute()
     
@@ -16,11 +17,12 @@
     }
 
     onMounted(() => {
-        getData('uz')
+        getData(locale.value)
     })
+    
     const list = ref([
         {
-            slug: '/asda/zdasdaxc',
+            slug: '/zdasdaxc',
             cat: 'E’lonlar',
             img: '',
             title: 'Ta’lim sifatini baholash va monitoring qilish',

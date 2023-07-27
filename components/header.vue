@@ -1,131 +1,105 @@
 <script setup>
-    // import { storeToRefs } from 'pinia';
-    import { useMenuStore } from '@/store/menu';
-    // import { useMainStore } from '~/store/main';
-    const menuStore = useMenuStore()
-    // const mainStore = useMainStore()
-    // const { cats }  = storeToRefs(mainStore)
+    import { storeToRefs } from "pinia";
+    import { useMenuStore } from "@/store/menu";
+    import { useMainStore } from "@/store/main";
 
-/* Mobile Menu */
-    function openMenu() {
-        menuStore.menuChange()
-    }
+    const menuStore = useMenuStore()
+    const mainStore = useMainStore()
+    // const { cats }  = storeToRefs(mainStore)
+    const cats = ref([])
 
     const nav = ref([
         {
             slug: '',
-            title: 'Markaz',
+            title: 'markaz',
             list: [
                 {
-                    slug: 'zexc',
-                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                    slug: 'page-center',
+                    title: 'markaz haqida'
                 },
                 {
-                    slug: 'zexc',
-                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                    slug: 'staff',
+                    title: 'Rahbariyat'
                 },
                 {
-                    slug: 'zexc',
-                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                    slug: 'page-tuzilma',
+                    title: 'Tuzilma'
                 },
             ]
         },
         {
-            slug: '',
-            title: 'Faoliyat',
+            slug: 'page-activity',
+            title: 'Faoliyat'
+        },
+        {
+            slug: 'page-xalqaro-aloqalar',
+            title: 'Xalqaro Aloqalar',
             list: [
                 {
-                    slug: 'zexc',
-                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                    slug: 'page-xalqaro-hamkorlar',
+                    title: 'Xalqaro Hamkorlar',
                 },
                 {
-                    slug: 'zexc',
-                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                    slug: 'page-hamkorlik-loyihalari',
+                    title: 'Hamkorlik Loyihalari',
                 },
                 {
-                    slug: 'zexc',
-                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
-                }
-            ,]
-        },
-        {
-            slug: '',
-            title: 'Interaktiv xizmatlar',
-            list: [
-                {
-                    slug: 'zexc',
-                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
-                },
-                {
-                    slug: 'zexc',
-                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
-                },
-                {
-                    slug: 'zexc',
-                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
-                },
-            ]
-        },
-        {
-            slug: '',
-            title: 'Hujjatlar',
-            list: [ 
-                {
-                    slug: 'zexc',
-                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
-                },
-                {
-                    slug: 'zexc',
-                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
-                },
-                {
-                    slug: 'zexc',
-                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
-                },
-            ]
-        },
-        {
-            slug: '',
-            title: 'Hamkorlik',
-            list: [ 
-                {
-                    slug: 'zexc',
-                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
-                },
-                {
-                    slug: 'zexc',
-                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
-                },
-                {
-                    slug: 'zexc',
-                    title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi'
+                    slug: 'page-xalqaro-ekspertlar',
+                    title: 'Xalqaro Ekspertlar',
                 },
             ]
         },
         {
             slug: '',
             title: 'Axborot xizmati',
-            list: [ 
+            list: [
                 {
-                    slug: 'questions',
-                    title: 'Savollar'
+                    slug: 'savol-va-javob',
+                    title: 'Savol va javob'
                 },
                 {
-                    slug: 'gallery',
+                    slug: 'hujjatlar',
+                    title: 'Ochiq ma`lumotlar'
+                },
+                {
+                    slug: 'yangiliklar',
+                    title: 'Yangiliklar'
+                },
+                {
+                    slug: 'galereya',
                     title: 'Galereya'
-                },
-                {
-                    slug: 'files',
-                    title: 'Fayllar'
                 },
             ]
         },
         {
-            slug: 'contacts',
+            slug: 'aloqa',
             title: 'Aloqa'
         }
     ])
 
+
+    const { locale, locales, setLocale } = useI18n()
+    const availableLocales = computed(() => {
+        return (locales.value)
+    })
+
+/* Mobile Menu */
+    function openMenu() {
+        menuStore.menuChange()
+    }
+
+    const getData = async (lang) => {
+        const res = await mainStore.getSuperCats(lang)
+        if (res.data.value) {
+            cats.value = res.data.value
+            nav.value = [...nav.value, ...cats.value]
+            console.log(cats.value)
+        }
+    }
+
+    onMounted(() => {
+        // getData(locale.value)
+    })
 </script>
 
 <template>
@@ -198,17 +172,54 @@
                             </li>
                         </ul>
 
-                        <!-- <div class="header__lang">
-                            <button>
-                                <span>O’z</span>
-                                <img src="/logos/arrow-down.svg">
-                            </button>
-                        </div> -->
+                        <div class="header__lang">
+                            <div class="item" 
+                                v-for="lang in availableLocales"
+                                :key="lang.code"
+                            >
+                                <button
+                                    :class="lang.code == locale ? 'active' : ''"
+                                    @click.prevent.stop="setLocale(lang.code)"
+                                >
+                                    <span>{{ lang.name }}</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                     <div class="header__bot">
                         <ul class="header__nav">
-                            <li class="item" v-for="item, index of nav" :key="index">
-                                <nuxt-link class="item__link" :to="`/${item?.slug}`">
+                            <!-- <li class="item" 
+                                v-for="item, index of cats" 
+                                :key="index"
+                            >
+                                <nuxt-link class="item__link" 
+                                    :to="`/${item?.slug}`"
+                                >
+                                    <span>{{ item?.title }}</span>
+                                    <img src="/logos/arrow-down.svg" v-if="item?.list">
+                                </nuxt-link>
+
+                                <div class="item__list">
+                                    <ul class="list">
+                                        <li class="list__item"
+                                            v-for="subItem, index of item?.subs"
+                                            :key="index"
+                                        >
+                                            <nuxt-link :to="subItem?.slug">
+                                                {{ subItem?.title }}
+                                            </nuxt-link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li> -->
+                            
+                            <li class="item" 
+                                v-for="item, index of nav" 
+                                :key="index"
+                            >
+                                <nuxt-link class="item__link" 
+                                    :to="item?.slug.length > 0 ? `/${item?.slug}` : null"
+                                >
                                     <span>{{ item?.title }}</span>
                                     <img src="/logos/arrow-down.svg" v-if="item?.list">
                                 </nuxt-link>

@@ -24,7 +24,7 @@
                 color: #121212;
                 margin: auto 0 auto;
                 padding-left: 10px;
-                max-width: 285px;
+                width: 285px;
                 font-size: 14px;
                 font-weight: 700;
                 text-transform: uppercase;
@@ -33,7 +33,6 @@
     }
     &__top{
         @include df-aic;
-        margin: 0px -10px;
     }
     &__right{
         display: flex;
@@ -113,10 +112,32 @@
         }
     }
     &__lang{
-        padding-left: 20px;
-        button{
-            @include df-aic;
+        padding-left: 15px;
+        @include df-aic;
+        gap: 20px;
+        .item{
             font-size: 14px;
+            position: relative;
+            &::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                right: -10px;
+                width: 1px;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+            &:last-child{
+                &::after{
+                    display: none;
+                }
+            }
+            button{
+                font-weight: 500;
+                &.active{
+                    text-decoration: underline
+                }
+            }
         }
     }
 
@@ -131,6 +152,11 @@
                 @include df-aic;
                 font-weight: 500;
                 padding: 5px;
+                span{
+                    &::first-letter{
+                        text-transform: capitalize;
+                    }
+                }
                 img{
                     margin-left: 5px;
                 }
@@ -148,6 +174,9 @@
                 @include tr(.2s);
                 a{
                     color: #fff;
+                    &::first-letter{
+                        text-transform: capitalize;
+                    }
                 }
                 .list{
                     display: flex;
@@ -159,6 +188,8 @@
                             padding: 10px 20px;
                             font-size: 14px;
                             line-height: normal;
+                            width: 100%;
+                            text-align: center;
                             @include tr(.2s);
                             &:hover{
                                 background-color: darken(#225DA3, 5%);
@@ -166,12 +197,12 @@
                         }
                         &:first-child{
                             a{
-                                padding: 20px 20px 10px 20px;
+                                padding: 12px 20px 10px 20px;
                             }
                         }
                         &:last-child{
                             a{
-                                padding: 10px 20px 20px 20px;
+                                padding: 10px 20px 12px 20px;
                             }
                         }
                     }
