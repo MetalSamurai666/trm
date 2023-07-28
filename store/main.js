@@ -3,6 +3,7 @@ import { defineStore } from 'pinia'
 export const useMainStore = defineStore('indexId', () => {
     const url = ref('https://trmapi.of-astora.uz')
     const cats = ref([])
+    const menus = ref([])
 
     const getSuperCats = async (lang) => {
         return useFetch(url.value+`/api/category/all/?lang=${lang}`)
@@ -22,7 +23,7 @@ export const useMainStore = defineStore('indexId', () => {
     }
     
     const getOnePage = (slug, lang) => {
-        console.log(slug, lang)
+        // console.log(slug, lang)
         return useFetch(url.value+`/api/page/one/${slug}/?lang=${lang}`)
         .catch(er => console.log(er))
     }
@@ -51,8 +52,22 @@ export const useMainStore = defineStore('indexId', () => {
         .catch(er => console.log(er))
     }
 
+    // const getMenu = () => {
+    //     // console.log(id, lang)
+    //     return useFetch(url.value+`/api/menu/`)
+    //     .catch(er => console.log(er))
+    // }
+
+    const getMenus = async (lang) => {
+        const res = await useFetch(url.value+`/api/menus/?lang=${lang}`)
+        if (res.data.value) {
+            menus.value = res.data.value
+        }
+    }
+
     return {
         cats,
+        menus,
         url,
         getSuperCats,
         getOneCat,
@@ -61,6 +76,7 @@ export const useMainStore = defineStore('indexId', () => {
         getAllWorkers,
         getAllFiles,
         getAllPics,
-        getOnePic
+        getOnePic,
+        getMenus
     }
 })

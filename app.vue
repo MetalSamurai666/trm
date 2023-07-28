@@ -5,7 +5,7 @@
   const { locale } = useI18n()
 
   const getData = async (val) => {
-    await mainStore.getSuperCats(val)
+    await mainStore.getMenus(val)
   }
 
   watch(

@@ -93,7 +93,7 @@
                 <div class="footer__mid">
                     <ul class="footer__list">
                         <li class="item contacts">
-                            <div class="item__title">Aloqa</div>
+                            <div class="item__title">{{ $t('contacts') }}</div>
 
                             <ul class="item__list">
                                 <li class="item__link">

@@ -8,7 +8,6 @@
         let res = await mainStore.getAllWorkers(lang)
         if (res.data.value) {
             staff.value = res.data.value
-            console.log(staff.value, 'staff')
         }
     }
 
@@ -26,7 +25,7 @@
     <NuxtLayout>
         <div class="staff">
             <Bread 
-                :bread-title="'Rahbariyat'"
+                :bread-title="$t('staff')"
             />
             <StaffList
                 :list="staff"

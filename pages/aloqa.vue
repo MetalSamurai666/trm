@@ -6,7 +6,7 @@
     <nuxt-layout>
         <div class="contacts">
             <Bread 
-                :bread-title="'Aloqa'"
+                :bread-title="$t('contacts')"
             />
             <Info />
             <Sponsors />

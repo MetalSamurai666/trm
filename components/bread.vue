@@ -15,7 +15,7 @@
                 <ul class="bread__list">
                     <li class="item">
                         <nuxt-link to="/" class="item__link">
-                            <span>Bosh sahifa</span>
+                            <span>{{ $t('main') }}</span>
                         </nuxt-link>
                         <div class="item__logo">
                             <img src="/logos/arrow-right.svg">

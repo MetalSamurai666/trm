@@ -5,7 +5,7 @@
 
     const menuStore = useMenuStore()
     const mainStore = useMainStore()
-    // const { cats }  = storeToRefs(mainStore)
+    const { menus }  = storeToRefs(mainStore)
     const cats = ref([])
 
     const nav = ref([
@@ -62,7 +62,7 @@
                     title: 'Ochiq ma`lumotlar'
                 },
                 {
-                    slug: 'yangiliklar',
+                    slug: 'cat-yangiliklar',
                     title: 'Yangiliklar'
                 },
                 {
@@ -214,28 +214,33 @@
                             </li> -->
                             
                             <li class="item" 
-                                v-for="item, index of nav" 
+                                v-for="item, index of menus" 
                                 :key="index"
                             >
                                 <nuxt-link class="item__link" 
-                                    :to="item?.slug.length > 0 ? `/${item?.slug}` : null"
+                                    :to="item?.url.length > 0 ? `/${item?.slug ? item?.url : ''}${item?.slug ? '-' : ''}${'-',item?.slug}` : null"
                                 >
                                     <span>{{ item?.title }}</span>
-                                    <img src="/logos/arrow-down.svg" v-if="item?.list">
+                                    <img src="/logos/arrow-down.svg" v-if="item?.parent.length > 0">
                                 </nuxt-link>
 
                                 <div class="item__list">
                                     <ul class="list">
                                         <li class="list__item"
-                                            v-for="subItem, index of item?.list"
+                                            v-for="subItem, index of item?.parent"
                                             :key="index"
                                         >
-                                            <nuxt-link :to="subItem?.slug">
+                                            <nuxt-link :to="`/${subItem?.url}${subItem?.slug ? '-' : ''}${'-',subItem?.slug}`">
                                                 {{ subItem?.title }}
                                             </nuxt-link>
                                         </li>
                                     </ul>
                                 </div>
+                            </li>
+                            <li class="item">
+                                <nuxt-link class="item__link" to="aloqa">
+                                    <span>{{ $t('contacts') }}</span>
+                                </nuxt-link>
                             </li>
                         </ul>
                     </div>
