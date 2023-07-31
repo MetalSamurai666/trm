@@ -1,15 +1,16 @@
 <script setup>
-    
-    import { useMainStore } from "@/store/main";
+    import { storeToRefs } from "pinia";
+    import { useMainStore } from "~/store/main";
     const mainStore = useMainStore()
     const { locale } = useI18n()
-
+    
     const list = ref([])
+    
     const getData = async (lang) => {
-        let res = await mainStore.getAllQuestions(lang)
+        let res = await mainStore.getAllNews(lang)
         if (res.data.value) {
             list.value = res.data.value
-            console.log(list.value, 'list')
+            // console.log(list.value);
         }
     }
 
@@ -21,20 +22,21 @@
     onMounted(() => {
         getData(locale.value)
     })
-
+    
 </script>
 
 <template>
-    <NuxtLayout>
-        <div class="questions">
+    <nuxt-layout>
+        <div class="category">
             <Bread 
-                :bread-title="$t('faq')"
+                :breadTitle="$t('news')"
             />
-            <Qa 
+            <List 
                 :list="list"
             />
+            <Sponsors />
         </div>
-    </NuxtLayout>
+    </nuxt-layout>
 </template>
 
 <style>

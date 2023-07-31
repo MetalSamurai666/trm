@@ -9,6 +9,39 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
     }
+    &__pagination{
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        .pagination{
+            display: flex;
+            box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.1);
+        }
+        .page-item{
+            .page-link{
+                padding: 10px 15px;
+                cursor: pointer;
+            }
+            &:first-child{
+                .page-link{
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;
+                }
+            }
+            &:last-child{
+                .page-link{
+                    border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                }
+            }
+            &.active{
+                .page-link{
+                    background-color: $colorLightBlue;
+                    color: #fff;
+                }
+            }
+        }
+    }
 
     @media (max-width: 500px) {
         &__box{

@@ -1,82 +1,40 @@
 <script setup>
 
-    const list = ref([
-        {
-            title: 'Markaz',
-            slug: '/',
-            list: [
-                {
-                    title: 'Markaz haqida',
-                    slug: '/'
-                },
-                {
-                    title: 'Rahbariyat',
-                    slug: '/'
-                },
-                {
-                    title: 'Boshqarma va bo’lim boshliqlari',
-                    slug: '/'
-                },
-                {
-                    title: 'Tuzilma',
-                    slug: '/'
-                },
-                {
-                    title: 'Muvofiqlashtiruvchi va maslahat organlari',
-                    slug: '/'
-                },
-                {
-                    title: 'Rekvizitlar',
-                    slug: '/'
-                },
-            ]
-        },
-        {
-            title: 'Faoliyat',
-            slug: '/',
-            list: [
-                {
-                    title: 'O`quv-metodik komplekslarni ishlab chiqish va joriy etish',
-                    slug: '/'
-                },
-                {
-                    title: 'Ta`lim sifatini baholash va monitoring qilish',
-                    slug: '/'
-                },
-                {
-                    title: 'Pedagogik texnologiyalar',
-                    slug: '/'
-                },
-            ]
-        },
-        {
-            title: 'Axborot xizmati',
-            slug: '/',
-            list: [
-                {
-                    title: 'Yangiliklar',
-                    slug: '/'
-                },
-                {
-                    title: 'E`lonlar',
-                    slug: '/'
-                },
-                {
-                    title: 'Press-relizlar',
-                    slug: '/'
-                },
-                {
-                    title: 'Ma`ruzalar',
-                    slug: '/'
-                },
-                {
-                    title: 'Tahliliy hisobotlar ',
-                    slug: '/'
-                },
-            ]
-        },
-    ])
+    import { useMainStore } from "@/store/main";
+    const mainStore = useMainStore()
+    const { locale } = useI18n()
 
+    const list = ref([])
+    const getData = async (lang) => {
+        let res = await mainStore.getFooter(lang)
+        if (res.data.value) {
+            list.value = res.data.value
+            // console.log(list.value);
+        }
+    }
+
+    const socials = ref([])
+    const getSocials = async () => {
+        let res = await mainStore.getSocials()
+        if (res.data.value) {
+            socials.value = res.data.value
+            // console.log(socials.value);
+        }
+    }
+
+    onMounted(() => {
+        getData(locale.value)
+    })
+
+    watch(
+        () => locale.value,
+        () => getData(locale.value)
+    )
+
+    onMounted(() => {
+        getData(locale.value)
+        getSocials()
+    })
 </script>
 
 <template>
@@ -124,12 +82,19 @@
                         </li>
 
                         <li class="item" v-for="item, index of list" :key="index">
-                            <nuxt-link class="item__title" :to="item?.slug">{{ item?.title }}</nuxt-link>
+                            <nuxt-link class="item__title" 
+                                :to="item?.url.length > 0 ? `/${item?.slug ? item?.url : ''}${item?.slug ? '-' : ''}${'-',item?.slug}` : null"
+                            >
+                                <span>{{ item?.title }}</span>
+                            </nuxt-link>
 
                             <ul class="item__list">
-                                <li class="item__link" v-for="subItem, index of item?.list" :key="index">
-                                    <nuxt-link :to="subItem?.slug">
+                                <li class="item__link" v-for="subItem, index of item?.parent" :key="index">
+                                    <!-- <nuxt-link :to="subItem?.slug">
                                         <span>{{ subItem?.title }}</span>
+                                    </nuxt-link> -->
+                                    <nuxt-link :to="`/${subItem?.url}${subItem?.slug ? '-' : ''}${'-',subItem?.slug}`">
+                                        {{ subItem?.title }}
                                     </nuxt-link>
                                 </li>
                             </ul>
@@ -137,29 +102,12 @@
                     </ul>
 
                     <ul class="footer__socials">
-                        <li class="item">
-                            <a href="/">
-                                <img src="/logos/socials/facebook.svg">
-                            </a>
-                        </li>
-                        <li class="item">
-                            <a href="/">
-                                <img src="/logos/socials/instagram.svg">
-                            </a>
-                        </li>
-                        <li class="item">
-                            <a href="/">
-                                <img src="/logos/socials/telegram.svg">
-                            </a>
-                        </li>
-                        <li class="item">
-                            <a href="/">
-                                <img src="/logos/socials/twitter.svg">
-                            </a>
-                        </li>
-                        <li class="item">
-                            <a href="/">
-                                <img src="/logos/socials/youtube.svg">
+                        <li class="item"
+                            v-for="item, index of socials"
+                            :key="index"
+                        >
+                            <a target="_blank" :href="item?.value">
+                                <img :src="`${mainStore.url}/${item?.file}`" :alt="item?.title">
                             </a>
                         </li>
                     </ul>

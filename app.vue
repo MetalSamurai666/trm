@@ -2,10 +2,20 @@
   import { useMainStore } from "@/store/main";
 
   const mainStore = useMainStore()
-  const { locale } = useI18n()
+  const { locale, t } = useI18n()
 
   const getData = async (val) => {
     await mainStore.getMenus(val)
+    useSeoMeta({
+      title: t('app_title_short')+' | '+t('app_title'),
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: t('app_title_short')+' | '+t('app_title')
+        }
+      ]
+    })
   }
 
   watch(
@@ -16,7 +26,7 @@
   )
 
   onMounted(() => {
-    document.title = 'TRM'
+    
     getData(locale.value)
   })
 

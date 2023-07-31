@@ -1,86 +1,28 @@
 <script setup>
     import { storeToRefs } from "pinia";
-    import { useMenuStore } from "@/store/menu";
+    import { useMenuStore } from '@/store/menu';
     import { useMainStore } from "@/store/main";
 
     const menuStore = useMenuStore()
     const mainStore = useMainStore()
     const { menus }  = storeToRefs(mainStore)
-    const cats = ref([])
-
-    const nav = ref([
-        {
-            slug: '',
-            title: 'markaz',
-            list: [
-                {
-                    slug: 'page-center',
-                    title: 'markaz haqida'
-                },
-                {
-                    slug: 'staff',
-                    title: 'Rahbariyat'
-                },
-                {
-                    slug: 'page-tuzilma',
-                    title: 'Tuzilma'
-                },
-            ]
-        },
-        {
-            slug: 'page-activity',
-            title: 'Faoliyat'
-        },
-        {
-            slug: 'page-xalqaro-aloqalar',
-            title: 'Xalqaro Aloqalar',
-            list: [
-                {
-                    slug: 'page-xalqaro-hamkorlar',
-                    title: 'Xalqaro Hamkorlar',
-                },
-                {
-                    slug: 'page-hamkorlik-loyihalari',
-                    title: 'Hamkorlik Loyihalari',
-                },
-                {
-                    slug: 'page-xalqaro-ekspertlar',
-                    title: 'Xalqaro Ekspertlar',
-                },
-            ]
-        },
-        {
-            slug: '',
-            title: 'Axborot xizmati',
-            list: [
-                {
-                    slug: 'savol-va-javob',
-                    title: 'Savol va javob'
-                },
-                {
-                    slug: 'hujjatlar',
-                    title: 'Ochiq ma`lumotlar'
-                },
-                {
-                    slug: 'cat-yangiliklar',
-                    title: 'Yangiliklar'
-                },
-                {
-                    slug: 'galereya',
-                    title: 'Galereya'
-                },
-            ]
-        },
-        {
-            slug: 'aloqa',
-            title: 'Aloqa'
-        }
-    ])
-
 
     const { locale, locales, setLocale } = useI18n()
     const availableLocales = computed(() => {
         return (locales.value)
+    })
+
+    const socials = ref([])
+    const getData = async () => {
+        let res = await mainStore.getSocials()
+        if (res.data.value) {
+            socials.value = res.data.value
+            // console.log(socials.value);
+        }
+    }
+
+    onMounted(() => {
+        getData(locale.value)
     })
 
 /* Mobile Menu */
@@ -88,18 +30,6 @@
         menuStore.menuChange()
     }
 
-    const getData = async (lang) => {
-        const res = await mainStore.getSuperCats(lang)
-        if (res.data.value) {
-            cats.value = res.data.value
-            nav.value = [...nav.value, ...cats.value]
-            console.log(cats.value)
-        }
-    }
-
-    onMounted(() => {
-        // getData(locale.value)
-    })
 </script>
 
 <template>
@@ -132,29 +62,9 @@
                         </ul>
 
                         <ul class="header__socials header__list">
-                            <li>
-                                <a href="#">
-                                    <img src="/logos/socials/facebook.svg">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/logos/socials/instagram.svg">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/logos/socials/telegram.svg">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/logos/socials/twitter.svg">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/logos/socials/youtube.svg">
+                            <li v-for="item, index of socials" :key="index">
+                                <a target="_blank" :href="item?.value">
+                                    <img :src="`${mainStore.url}/${item?.file}`" :alt="item?.title">
                                 </a>
                             </li>
                         </ul>
@@ -188,30 +98,6 @@
                     </div>
                     <div class="header__bot">
                         <ul class="header__nav">
-                            <!-- <li class="item" 
-                                v-for="item, index of cats" 
-                                :key="index"
-                            >
-                                <nuxt-link class="item__link" 
-                                    :to="`/${item?.slug}`"
-                                >
-                                    <span>{{ item?.title }}</span>
-                                    <img src="/logos/arrow-down.svg" v-if="item?.list">
-                                </nuxt-link>
-
-                                <div class="item__list">
-                                    <ul class="list">
-                                        <li class="list__item"
-                                            v-for="subItem, index of item?.subs"
-                                            :key="index"
-                                        >
-                                            <nuxt-link :to="subItem?.slug">
-                                                {{ subItem?.title }}
-                                            </nuxt-link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li> -->
                             
                             <li class="item" 
                                 v-for="item, index of menus" 

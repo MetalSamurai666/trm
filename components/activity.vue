@@ -3,19 +3,19 @@
 
     const slider = ref([
         {   
-            slug: '/asd/xxx',
+            slug: 'asd',
             logo: 'education',
             title: 'O’quv-metodik komplekslarni ishlab chiqish va joriy etish',
             info: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor'
         },
         {   
-            slug: '/asd/xxx',
+            slug: 'asd',
             logo: 'bookmark',
             title: 'Ta’lim sifatini baholash va monitoring qilish',
             info: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor'
         },
         {   
-            slug: '/asd/xxx',
+            slug: 'asd',
             logo: 'book',
             title: 'Pedagogik texnologiyalar',
             info: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor'

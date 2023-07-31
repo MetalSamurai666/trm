@@ -1,7 +1,17 @@
 <script setup>
+    import Paginate from 'vuejs-paginate-next';    
+
     defineProps({
         list: Array
     })
+
+    function clickCallback(pageNum) {
+        console.log(pageNum);
+    }
+
+    const pageCount = ref(
+    )
+    
 </script>
 
 <template>
@@ -16,6 +26,20 @@
                         :card="item"
                     />
                 </ul>
+
+                <!-- <div class="list__pagination">
+                    <paginate
+                        :page-count="10"
+                        :page-range="3"
+                        :margin-pages="2"
+                        :click-handler="clickCallback"
+                        :prev-text="'Prev'"
+                        :next-text="'Next'"
+                        :container-class="'pagination'"
+                        :page-class="'page-item'"
+                    >
+                    </paginate>
+                </div> -->
             </div>
         </div>
     </div>

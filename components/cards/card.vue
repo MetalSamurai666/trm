@@ -1,4 +1,7 @@
 <script setup>
+    import { useMainStore } from "@/store/main"
+
+    const mainStore = useMainStore()
 
     defineProps({
         card: Object
@@ -9,17 +12,16 @@
 <template>
     <li class="card">
         <div class="card__left">
-            <nuxt-link :to="card?.slug" class="card__img">
-                <img src="/images/mini-placeholder.jpg">
+            
+            <nuxt-link :to="`/yangiliklar/${card?.slug}`" class="card__img">
+                <img :src="`${mainStore.url}/${card?.img}`">
             </nuxt-link>
         </div>
 
         <div class="card__right">
-            <div class="card__cat">{{ card?.cat }}</div>
+            <nuxt-link :to="`/yangiliklar/${card?.slug}`" class="card__title">{{ card?.title }}</nuxt-link>
             
-            <nuxt-link :to="card?.slug" class="card__title">{{ card?.title }}</nuxt-link>
-            
-            <div class="card__date">{{ card?.date }}</div>
+            <div class="card__date">{{ card?.date.slice(0, 10) }}</div>
         </div>
 
     </li>

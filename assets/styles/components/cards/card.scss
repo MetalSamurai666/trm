@@ -59,28 +59,19 @@
             display: flex;
             flex-wrap: wrap;
         }
-        .card__cat{
-            width: 50%;
+        .card__date{
             order: 1;
             font-size: 15px;
-            text-align: left;
-            color: $colorLightBlue;
-            font-weight: 500;
-        }
-        .card__date{
-            width: 50%;
-            order: 2;
-            font-size: 15px;
-            text-align: right;
         }
         .card__title{
             width: 100%;
-            order: 3;
+            order: 2;
             @include tr(.2s);
             @include oh(3);
             font-size: 24px;
             font-weight: 700;
             line-height: 32px;
+            text-transform: none;
             &:hover{
                 color: $colorLightBlue;
             }

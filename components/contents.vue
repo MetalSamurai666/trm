@@ -1,35 +1,26 @@
 <script setup>
-    const big = ref({
-        slug: '/asd/zxc',
-        cat: 'E’lonlar',
-        img: '',
-        title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi',
-        date: '1 iyul 2023 y.'
-    })
 
-    const list = ref([
-        {
-            slug: '/asd/zxc',
-            cat: 'E’lonlar',
-            img: '',
-            title: 'Ta’lim sifatini baholash va monitoring qilish',
-            date: '1 iyul 2023 y.'
-        },
-        {
-            slug: '/asd/zxc',
-            cat: 'yangiliklar',
-            img: '',
-            title: 'finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi',
-            date: '12 iyun 2023 y.'
-        },
-        {
-            slug: '/asd/zxc',
-            cat: 'Ta’lim',
-            img: '',
-            title: 'o’quv-metodik komplekslarni ishlab chiqish va joriy etish',
-            date: '6 aprel 2023 y.'
-        },
-    ])
+    import { useMainStore } from "@/store/main";
+    const mainStore = useMainStore()
+    const { locale } = useI18n()
+
+    const list = ref([])
+    const getData = async (lang) => {
+        let res = await mainStore.getNewsMain(lang)
+        if (res.data.value) {
+            list.value = res.data.value
+            // console.log(list.value);
+        }
+    }
+
+    watch(
+        () => locale.value,
+        () => getData(locale.value)
+    )
+
+    onMounted(() => {
+        getData(locale.value)
+    })
 </script>
 
 <template>
@@ -43,14 +34,14 @@
                     <div class="contents__left">
                         <CardsCard
                             class="big"
-                            :card="big"
+                            :card="list[0]"
                         />
                     </div>
 
                     <div class="contents__mid">
                         <ul class="contents__list">
                             <CardsCard
-                                v-for="item, index of list"
+                                v-for="item, index of list.slice(1)"
                                 :key="index"
                                 :card="item"
                             />
@@ -60,10 +51,10 @@
                     <div class="contents__right">
                         <ul class="contents__video">
                             <li class="item">
-                                <img src="/images/video-placeholder.jpg">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jMYrqH9dvdg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </li>
                             <li class="item">
-                                <img src="/images/video-placeholder.jpg">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jMYrqH9dvdg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </li>
                         </ul>
                     </div>

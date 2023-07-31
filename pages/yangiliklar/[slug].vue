@@ -4,21 +4,12 @@
     const route = useRoute()
     const { locale } = useI18n()
 
-    const page = ref({})
+    const newbie = ref({})
     const getData = async (lang) => {
-        let res = await mainStore.getOnePage(route.params.page, lang)
+        let res = await mainStore.getOneNews(route.params.slug, lang)
         if (res.data.value) {
-            page.value = res.data.value
-            console.log(page.value, 'page')
-        }
-    }
-
-    const rand = ref([])
-    const getRand = async (lang) => {
-        let res = await mainStore.getNewsSlider(lang)
-        if (res.data.value) {
-            rand.value = res.data.value
-            console.log(rand.value);
+            newbie.value = res.data.value
+            // console.log(newbie.value, 'newbie')
         }
     }
 
@@ -29,7 +20,6 @@
 
     onMounted(() => {
         getData(locale.value)
-        getRand(locale.value)
     })
 </script>
 
@@ -37,11 +27,12 @@
     <nuxt-layout>
         <div>
             <Bread 
-                :breadTitle="page?.title"
+                :breadTitle="newbie?.news?.title"
+                :breadType="'news'"
             />
             <Article 
-                :article="page"
-                :rand="rand"
+                :article="newbie?.news"
+                :rand="newbie?.rand_news"
             />
             <Sponsors />
         </div>

@@ -1,29 +1,28 @@
 <script setup>
     import { Splide, SplideSlide } from '@splidejs/vue-splide'
 
-    const slider = ref([
-        {
-            link: '/',
-            cat: 'yangiliklar',
-            date: '12/03/2069 10:32',
-            title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi',
-            info: 'O’zbekiston Respublikasi Ta’limni rivojlantirish respublika ilmiy-metodik markaz tomonidan taqdim qilinadigan davlat interfaol xizmatlari to’g’risidagi ma’lumotlar.',
-        },
-        {
-            link: '/',
-            cat: 'xizmatlar',
-            date: '02/04/2007 02:18',
-            title: 'Finlyandiya taʼlim platformalaridan unumli foydalanish muhokama qilindi',
-            info: 'Joriy yilning 20-dekabr kuni Taʼlim sifatini nazorat qilish davlat inspeksiyasida Edtech Finland kompaniyasi vakillari bilan uchrashuv boʻlib oʻtdi.',
-        },
-        {
-            link: '/',
-            cat: 'faoliyat',
-            date: '10/08/2077 02:39',
-            title: 'O’quv-metodik komplekslarni ishlab chiqish va joriy etish',
-            info: 'O’zbekiston Respublikasi Ta’limni rivojlantirish respublika ilmiy-metodik markaz tomonidan taqdim qilinadigan davlat interfaol xizmatlari to’g’risidagi ma’lumotlar.',
-        },
-    ])
+    import { useMainStore } from "@/store/main";
+    const mainStore = useMainStore()
+    const { locale } = useI18n()
+
+    const slider = ref([])
+    const getData = async (lang) => {
+        let res = await mainStore.getNewsSlider(lang)
+        if (res.data.value) {
+            slider.value = res.data.value
+            // console.log(slider.value);
+        }
+    }
+
+    watch(
+        () => locale.value,
+        () => getData(locale.value)
+    )
+
+    onMounted(() => {
+        getData(locale.value)
+    })
+
 </script>
 
 <template>
@@ -68,27 +67,26 @@
                             <div class="slide__box">
                                 <div class="slide__left">
                                     <div class="slide__top">
-                                        <div class="slide__cat">{{ item.cat }}</div>
-                                        <div class="slide__date">{{ item.date }}</div>
+                                        <div class="slide__date">{{ item?.date.slice(0, 10) }}</div>
                                     </div>
                                     <div class="slide__mid">
-                                        <div class="slide__title">{{ item.title }}</div>
-                                        <div class="slide__info">{{ item.info }}</div>
+                                        <div class="slide__title">{{ item?.title }}</div>
+                                        <div class="slide__info" v-html="item?.content"></div>
                                     </div>
                                     <div class="slide__bot">
                                         <div class="slide__more">
-                                            <nuxt-link :to="item.link">Batafsil</nuxt-link>
+                                            <nuxt-link :to="`/yangiliklar/${item?.slug}`">Batafsil</nuxt-link>
                                         </div>
                                         <div class="slide__all">
-                                            <nuxt-link to="/">Barcha yangiliklar</nuxt-link>
+                                            <nuxt-link to="/yangiliklar">Barcha yangiliklar</nuxt-link>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="slide__right">
                                     <div class="slide__img">
                                         <img 
-                                            :data-splide-lazy="`https://picsum.photos/id/6${index}/550`"
-                                            :src="`https://picsum.photos/id/6${index}/550`"
+                                            :data-splide-lazy="`${mainStore.url}/${item?.img}`"
+                                            :src="`${mainStore.url}/${item?.img}`"
                                         />
                                     </div>
                                 </div>

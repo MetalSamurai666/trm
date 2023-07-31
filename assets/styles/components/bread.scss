@@ -15,6 +15,9 @@
     &__title{
         font-size: 24px;
         font-weight: 600;
+        &::first-letter{
+            text-transform: capitalize;
+        }
     }
     &__list{
         @include df-aic;
@@ -29,6 +32,11 @@
                 &.router-link-exact-active{
                     span{
                         position: relative;
+                        display: block;
+                        &::first-letter{
+                            text-transform: capitalize;
+                        }
+                        
                         &::after{
                             content: '';
                             position: absolute;

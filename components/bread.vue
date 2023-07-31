@@ -2,7 +2,8 @@
     const route = useRoute()
 
     defineProps({
-        breadTitle: String
+        breadTitle: String,
+        breadType: String
     })
 </script>
 
@@ -16,6 +17,15 @@
                     <li class="item">
                         <nuxt-link to="/" class="item__link">
                             <span>{{ $t('main') }}</span>
+                        </nuxt-link>
+                        <div class="item__logo">
+                            <img src="/logos/arrow-right.svg">
+                        </div>
+                    </li>
+
+                    <li class="item" v-if="breadType == 'news'">
+                        <nuxt-link to="/yangiliklar" class="item__link">
+                            <span>{{ $t('news') }}</span>
                         </nuxt-link>
                         <div class="item__logo">
                             <img src="/logos/arrow-right.svg">
