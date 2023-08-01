@@ -34,7 +34,7 @@
         font-weight: 700;
         @include oh(4);
         padding-bottom: 5px;
-        text-transform: capitalize;
+        // text-transform: capitalize;
         &:hover{
             color: $colorDarkBlue;
         }

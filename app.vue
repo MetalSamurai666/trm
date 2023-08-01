@@ -26,7 +26,6 @@
   )
 
   onMounted(() => {
-    
     getData(locale.value)
   })
 

@@ -40,19 +40,19 @@
                     <div class="header__logo">
                         <nuxt-link to="/">
                             <img src="/images/emblem.png">
-                            <span>O‘zbekiston Respublikasi Ta’limni <br> rivojlantirish respublika <br> ilmiy-metodik markazi</span>
+                            <span>{{ $t('app_title') }}</span>
                         </nuxt-link>
                     </div>
                 </div>
                 <div class="header__right">
                     <div class="header__top">
                         <ul class="header__info header__list">
-                            <li>
+                            <!-- <li>
                                 <a href="tel:+998712540815">
                                     <img src="/logos/phone.svg">
                                     <span>+998 71 254-08-15</span>
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="mailto:info@trm.uz">
                                     <img src="/logos/message.svg">
@@ -104,10 +104,10 @@
                                 :key="index"
                             >
                                 <nuxt-link class="item__link" 
-                                    :to="item?.url.length > 0 ? `/${item?.slug ? item?.url : ''}${item?.slug ? '-' : ''}${'-',item?.slug}` : null"
+                                    :to="item?.url?.length > 0 ? `/${item?.slug ? item?.url : ''}${item?.slug ? '-' : ''}${'-',item?.slug}` : null"
                                 >
                                     <span>{{ item?.title }}</span>
-                                    <img src="/logos/arrow-down.svg" v-if="item?.parent.length > 0">
+                                    <img src="/logos/arrow-down.svg" v-if="item?.parent?.length > 0">
                                 </nuxt-link>
 
                                 <div class="item__list">

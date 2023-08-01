@@ -5,7 +5,8 @@
 
     defineProps({
         article: Object,
-        rand: Array
+        rand: Array,
+        img: Boolean
     })
 
 </script>
@@ -16,7 +17,7 @@
             <div class="article__box">
                 <div class="article__body" v-if="article?.content?.length > 0">
                     <div class="article__left">
-                        <div :class="article?.title == 'Tuzilma' ? 'article__img no-height' : 'article__img'">
+                        <div :class="article?.title == 'Tuzilma' ? 'article__img no-height' : 'article__img'" v-if="img">
                             <img :src="`${mainStore.url}/${article?.img}`">
                         </div>
 

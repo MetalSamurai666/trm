@@ -1,26 +1,26 @@
 <script setup>
     import { Splide, SplideSlide } from '@splidejs/vue-splide';
+    import { useMainStore } from "@/store/main";
+    const mainStore = useMainStore()
+    const { locale } = useI18n()
 
-    const slider = ref([
-        {   
-            slug: 'asd',
-            logo: 'education',
-            title: 'O’quv-metodik komplekslarni ishlab chiqish va joriy etish',
-            info: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor'
-        },
-        {   
-            slug: 'asd',
-            logo: 'bookmark',
-            title: 'Ta’lim sifatini baholash va monitoring qilish',
-            info: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor'
-        },
-        {   
-            slug: 'asd',
-            logo: 'book',
-            title: 'Pedagogik texnologiyalar',
-            info: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor'
-        },
-    ])
+    const list = ref([])
+    const getData = async (lang) => {
+        let res = await mainStore.getAllActivities(lang)
+        if (res.data.value) {
+            list.value = res.data.value
+            console.log(list.value);
+        }
+    }
+
+    watch(
+        () => locale.value,
+        () => getData(locale.value)
+    )
+
+    onMounted(() => {
+        getData(locale.value)
+    })
 </script>
 
 <template>
@@ -28,7 +28,7 @@
         <div class="container">
             <div class="activity__box">
                 <div class="activity__head">
-                    <div class="activity__title">faoliyat</div>
+                    <div class="activity__title">{{ $t('activity') }}</div>
                 </div>
 
                 <div class="activity__body">
@@ -63,21 +63,21 @@
                         >
                             <SplideSlide
                                 class="splide__slide slide" 
-                                v-for="item, index of slider" 
+                                v-for="item, index of list" 
                                 :key="index"
                             >
                                 <div class="slide__box">
                                     <div class="slide__logo">
-                                        <img :src="`/logos/${item?.logo}.svg`" alt="">
+                                        <img :src="`${mainStore.url}/${item?.img}`">
                                     </div>
-                                    <nuxt-link :to="item?.slug" class="slide__title">
+                                    <nuxt-link :to="`activity-${item?.slug}`" class="slide__title">
                                         {{ item?.title }}
                                     </nuxt-link>
-                                    <div class="slide__info">{{ item?.info }}</div>
+                                    <div class="slide__info" v-html="item?.content"></div>
                                 </div>
 
                                 <div class="slide__btn">
-                                    <nuxt-link :to="item?.slug">
+                                    <nuxt-link :to="`activity-${item?.slug}`" class="slide__title">
                                         <img src="/logos/arrow-left.svg">
                                     </nuxt-link>
                                 </div>

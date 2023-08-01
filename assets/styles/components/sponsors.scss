@@ -26,6 +26,7 @@
             }
             &__title{
                 a{
+                    font-weight: 500;
                     @include tr(.2s);
                 }
                 &:hover{

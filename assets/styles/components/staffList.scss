@@ -4,4 +4,9 @@
     &__box{
         padding: 40px 0px;
     }
+    &__list{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 }

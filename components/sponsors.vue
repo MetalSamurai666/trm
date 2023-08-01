@@ -1,39 +1,38 @@
 <script setup> 
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
 
+import imgEmblem from '@/public/images/emblem.png'
+import imgEdu from '@/public/logos/sponsors/edu.png'
+import imgUzedu from '@/public/logos/sponsors/uzedu.svg'
+import imgPiima from '@/public/logos/sponsors/piima.svg'
+
     const slider = ref([
         {
-            slug: '/',
+            img: imgEdu,
+            slug: 'https://edu.uz/uz',
+            title: 'O‘zbekiston Respublikasi oliy ta‘lim, fan va innovatsiyalar vazirligi'
+        },
+        {
+            img: imgUzedu,
+            slug: 'https://uzedu.uz/uz',
+            title: 'Maktabgacha va maktab ta‘limi vazirligi'
+        },
+        {
+            img: imgEmblem,
+            slug: 'https://president.uz/',
+            title: 'O‘zbekiston Respublikasi prezidenti'
+        },
+        {
+            img: imgEmblem,
+            slug: 'https://gov.uz/',
             title: 'O‘zbekiston Respublikasi Hukumat portali'
         },
         {
-            slug: '/',
-            title: 'O‘zbekiston Respublikasi Hukumat portali'
+            img: imgPiima,
+            slug: 'https://piima.uz/',
+            title: 'Ixtisoslashtirilgan ta‘lim muassasalari agentligi'
         },
-        {
-            slug: '/',
-            title: 'O‘zbekiston Respublikasi Hukumat portali'
-        },
-        {
-            slug: '/',
-            title: 'O‘zbekiston Respublikasi Hukumat portali'
-        },
-        {
-            slug: '/',
-            title: 'O‘zbekiston Respublikasi Hukumat portali'
-        },
-        {
-            slug: '/',
-            title: 'O‘zbekiston Respublikasi Hukumat portali'
-        },
-        {
-            slug: '/',
-            title: 'O‘zbekiston Respublikasi Hukumat portali'
-        },
-        {
-            slug: '/',
-            title: 'O‘zbekiston Respublikasi Hukumat portali'
-        },
+        
     ])
 </script>
 
@@ -68,11 +67,11 @@ import { Splide, SplideSlide } from "@splidejs/vue-splide";
                     >
                         <div class="slide__box">
                             <div class="slide__logo">
-                                <img src="/images/emblem.png" alt="">
+                                <img :src="item?.img" alt="">
                             </div>
 
                             <div class="slide__title">
-                                <a :href="item?.slug">{{ item?.title }}</a>
+                                <a target="_blank"  :href="item?.slug">{{ item?.title }}</a>
                             </div>
                         </div>
                     </SplideSlide>

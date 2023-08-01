@@ -24,16 +24,16 @@
                     clip-path: polygon(100% 0, 0 100%, 100% 100%);
                     background-color: #5E92D0;
                 }
-                &::after{
-                    content: '';
-                    position: absolute;
-                    top: -60px;
-                    left: 100%;
-                    width: 200px;
-                    height: 60px;
-                    background-color: $colorLightBlue;
-                    z-index: 2;
-                }
+                // &::after{
+                //     content: '';
+                //     position: absolute;
+                //     top: -60px;
+                //     left: 100%;
+                //     width: 200px;
+                //     height: 60px;
+                //     background-color: $colorLightBlue;
+                //     z-index: 2;
+                // }
             }
             &-arrow{
                 position: unset;
@@ -93,7 +93,12 @@
             &__info{
                 margin-top: 5px;
                 line-height: 26px;
-                @include oh(2);
+                // @include oh(2);
+                max-height: 75px;
+                overflow: hidden;
+                img{
+                    display: none;
+                }
             }
             /* ============================================================== */
             /* Bottom Section */
@@ -206,6 +211,7 @@
                 &__info{
                     font-size: 14px;
                     line-height: 22px;
+                    max-height: 70px;
                 }
                 &__more{
                     a{

@@ -7,7 +7,7 @@
         <div class="container">
             <div class="info__box">
                 <div class="info__map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.005560375418!2d69.21781664118242!3d41.35223286671334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8d063257660d%3A0xcdc6f379c93c0d9e!2sOLIY%20TA&#39;LIMNI%20RIVOJLANTIRISH%20TADQIQOTLARI%20VA%20ILG&#39;OR%20TEXNOLOGIYALARNI%20TATBIQ%20ETISH%20MARKAZI!5e0!3m2!1sen!2s!4v1689582146676!5m2!1sen!2s" width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d374.54918159233847!2d69.24967293584365!3d41.322056983247634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b74c66ce943%3A0xd6304c75366e945f!2sAxborot%20va%20ommaviy%20kommunikatsiyalar%20agentligi!5e0!3m2!1sen!2s!4v1690885986155!5m2!1sen!2s" width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
                 <div class="info__body">
@@ -43,7 +43,7 @@
                                 </div>
 
                                 <div class="item__info">
-                                    <a href="#">Toshkent shahri, Amir temur ko’chasi 113 uy</a>
+                                    <a href="https://goo.gl/maps/dh1SrkmANYUUK9146">Toshkent shahri, Navoiy ko‘chasi, 30-uy</a>
                                 </div>
                             </li>
 

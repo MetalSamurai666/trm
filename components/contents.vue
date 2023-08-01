@@ -51,10 +51,10 @@
                     <div class="contents__right">
                         <ul class="contents__video">
                             <li class="item">
-                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jMYrqH9dvdg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/-caqXHhEvWM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </li>
                             <li class="item">
-                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jMYrqH9dvdg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8waPOxWiAjU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </li>
                         </ul>
                     </div>

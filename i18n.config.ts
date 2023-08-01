@@ -11,7 +11,12 @@ export default defineI18nConfig(() => ({
             contacts: 'Aloqa',
             staff: 'Rahbariyat',
             other_news: 'Boshqa yangiliklar',
-            other_news_no: 'Boshqa yangiliklar yo`q'
+            other_news_no: 'Boshqa yangiliklar yo`q',
+            activity: 'Faoliyat',
+            address: 'Toshkent shahri, Navoiy ko‘chasi, 30-uy',
+            more: 'Batafsil',
+            all_news: 'Barcha yangiliklar',
+            copyright: 'Materialdan to‘liq yoki qisman, trm.uz manbasi ko‘rsatilishi shart. Saytni tayyorladi'
         },
         ru: {
             app_title_short: 'ЦРО',
@@ -22,7 +27,12 @@ export default defineI18nConfig(() => ({
             contacts: 'Контакты',
             staff: 'Руководство',
             other_news: 'Другие новости',
-            other_news_no: 'Других новостей нет'
+            other_news_no: 'Других новостей нет',
+            activity: 'Деятельность',
+            address: 'Город Ташкент, улица Навои, 30-дом',
+            more: 'Подробнее',
+            all_news: 'Все новости',
+            copyright: 'Из материала, полностью или частично, trm.uz необходимо указать источник. Сделано в'
         },
         en: {
             app_title_short: 'CDE',
@@ -33,7 +43,12 @@ export default defineI18nConfig(() => ({
             contacts: 'Contacts',
             staff: 'Secretariat',
             other_news: 'Other news',
-            other_news_no: 'No other news'
+            other_news_no: 'No other news',
+            activity: 'Activity',
+            address: '30, Navoi Street, Tashkent City',
+            more: 'More',
+            all_news: 'All news',
+            copyright: 'From the material, in whole or in part, trm.uz must be specified as the source. Made in'
         }
     }
 }))

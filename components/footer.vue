@@ -41,12 +41,12 @@
     <footer class="footer">
         <div class="container">
             <div class="footer__box">
-                <div class="footer__top">
+                <!-- <div class="footer__top">
                     <nuxt-link class="footer__logo" to="/">
                         <img src="/images/emblem.png">
                         <span>O‘zbekiston Respublikasi Ta’limni rivojlantirish respublika ilmiy-metodik markazi</span>
                     </nuxt-link>
-                </div>
+                </div> -->
 
                 <div class="footer__mid">
                     <ul class="footer__list">
@@ -58,9 +58,9 @@
                                     <div class="item__logo">
                                         <img src="/logos/location.svg">
                                     </div>
-                                    <a href="/"><span>Toshkent shahri, Amir temur ko’chasi 113 uy</span></a>
+                                    <a href="https://goo.gl/maps/dh1SrkmANYUUK9146"><span>{{ $t('address') }}</span></a>
                                 </li>
-                                <li class="item__link">
+                                <!-- <li class="item__link">
                                     <div class="item__logo">
                                         <img src="/logos/phone.svg">
                                     </div>
@@ -68,7 +68,7 @@
                                         <a href="tel:+998 71 342-65-75"><span>+998 71 342-65-75</span></a>
                                         <a href="tel:+998 71 542-21-56"><span>+998 71 542-21-56</span></a>
                                     </div>
-                                </li>
+                                </li> -->
                                 <li class="item__link">
                                     <div class="item__logo">
                                         <img src="/logos/message.svg">
@@ -114,7 +114,7 @@
                 </div>
                 
                 <div class="footer__bot">
-                    <p class="footer__copyright">Copyright © 2023. Materialdan to‘liq yoki qisman, trm.uz manbasi ko‘rsatilishi shart. Saytni tayyorladi - GRANDSOFT.UZ</p>
+                    <p class="footer__copyright">Copyright © 2023. {{ $t('copyright') }} - <a href="https://grandsoft.uz">GRANDSOFT.UZ</a></p>
                 </div>
             </div>
         </div>

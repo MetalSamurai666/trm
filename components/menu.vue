@@ -2,92 +2,32 @@
 /* Imports */
     import { storeToRefs } from 'pinia';
     import { useMenuStore } from '@/store/menu';
+    import { useMainStore } from "@/store/main";
 
-/* Consts */
-
+    
+    /* Consts */
+    
+    const mainStore = useMainStore()
     const menuStore = useMenuStore()
     const { menuState } = storeToRefs(menuStore)
+    const { menus }  = storeToRefs(mainStore)
+    const router = useRouter()
 
 /* Getting CATegorieS🐈 */
-    const cats = ref([
-        {
-            slug: '/',
-            title: 'Markaz',
-            subs: [
-                {
-                    slug: '/',
-                    title: 'Markaz 1'
-                }
-            ]
-        },
-        {
-            slug: '/',
-            title: 'Faoliyat',
-            subs: [
-                {
-                    slug: '/',
-                    title: 'Faoliyat 1'
-                }
-            ]
-        },
-        {
-            slug: '/',
-            title: 'Interaktiv xizmatlar',
-            subs: [
-                {
-                    slug: '/',
-                    title: 'Interaktiv xizmatlar 1'
-                }
-            ]
-        },
-        {
-            slug: '/',
-            title: 'Hujjarlar',
-            subs: [
-                {
-                    slug: '/',
-                    title: 'Hujjarlar 1'
-                }
-            ]
-        },
-        {
-            slug: '/',
-            title: 'Hamkorlik',
-            subs: [
-                {
-                    slug: '/',
-                    title: 'Hamkorlik 1'
-                }
-            ]
-        },
-        {
-            slug: '/',
-            title: 'Axborot xizmati',
-            subs: [
-                {
-                    slug: '/',
-                    title: 'Axborot xizmati 1'
-                }
-            ]
-        },
-        {
-            slug: '/',
-            title: 'Aloqa',
-            subs: []
-        },
+    async function changeRoute(slug, url) {
+        console.log(slug);
+        // if (url.length > 0) {
+        //     if (url.length > 0) {
+        //         await router.push(`/${url}`)
+        //     } else {
+        //         await router.push(`/${slug}-${}`)
+        //     }
+        // }
+        await router.push(`/${slug}`)
+        menuStore.menuChange()
+    }
 
-    ])
-    // const getData = async (val) => {
-    //     let res = await mainStore.getCats(val)
-    //     if (res.data.value) {
-    //         cats.value = res.data.value
-    //         // console.log(cats.value);
-    //     } else {
-    //         console.log('no cats');
-    //     }
-    // }
-
-    const benefitsv = ref(cats)
+    const benefitsv = ref(menus)
     const changeBenefit = ((id) => {
         benefitsv.value = benefitsv.value.map((status, index) => {
             if (index === id) {
@@ -123,20 +63,20 @@
                         v-for="item, index of benefitsv" :key="index"
                         :class="item?.active ? 'item active' : 'item'" 
                         >
-                        <NuxtLink :class="item?.subs.length > 0 ? 'item__link listly' : 'item__link'"
-                            @click="changeRoute(item?.slug)"
+                        <NuxtLink :class="item?.parent?.length > 0 ? 'item__link listly' : 'item__link'"
+                            @click="changeRoute(item?.slug, item?.url)"
                             >
                             {{ item.title }}
                         </NuxtLink>
 
                         <span class="item__open"
-                            v-if="item?.subs.length > 0" 
-                            @click="item?.subs ? changeBenefit(index) : null">
+                            v-if="item?.parent?.length > 0" 
+                            @click="item?.parent ? changeBenefit(index) : null">
                             <img src="/logos/arrow-right.svg">
                         </span>
 
-                        <ul class="item__list" v-if="item?.subs">
-                            <li v-for="subItem, index of item?.subs" :key="index">
+                        <ul class="item__list" v-if="item?.parent">
+                            <li v-for="subItem, index of item?.parent" :key="index">
                                 <NuxtLink 
                                     :to="subItem?.slug" 
                                     @click="closeMenu">

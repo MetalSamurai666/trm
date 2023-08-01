@@ -8,8 +8,20 @@ export const useMainStore = defineStore('indexId', () => {
         const res = await useFetch(url.value+`/api/menus/?lang=${lang}`)
         if (res.data.value) {
             menus.value = res.data.value
-            // console.log(menus.value);
+            console.log(menus.value, 'menu');
         }
+    }
+
+    const getAllActivities = (lang) => {
+        console.log(lang, 'act');
+        return useFetch(url.value+`/api/activity/?lang=${lang}`)
+        .catch(er => console.log(er))
+    }
+
+    const getOneActivity = (slug, lang) => {
+        console.log(slug, lang);
+        return useFetch(url.value+`/api/activity/${slug}/?lang=${lang}`)
+        .catch(er => console.log(er))
     }
 
     const getOneCat = (slug, lang) => {
@@ -100,6 +112,8 @@ export const useMainStore = defineStore('indexId', () => {
         menus,
         url,
         getMenus,
+        getAllActivities,
+        getOneActivity,
         getOneCat,
         getAllPages,
         getOnePage,
