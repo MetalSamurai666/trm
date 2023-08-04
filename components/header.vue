@@ -6,23 +6,11 @@
     const menuStore = useMenuStore()
     const mainStore = useMainStore()
     const { menus }  = storeToRefs(mainStore)
+    const { socials }  = storeToRefs(mainStore)
 
     const { locale, locales, setLocale } = useI18n()
     const availableLocales = computed(() => {
         return (locales.value)
-    })
-
-    const socials = ref([])
-    const getData = async () => {
-        let res = await mainStore.getSocials()
-        if (res.data.value) {
-            socials.value = res.data.value
-            // console.log(socials.value);
-        }
-    }
-
-    onMounted(() => {
-        getData(locale.value)
     })
 
 /* Mobile Menu */
@@ -39,8 +27,8 @@
                 <div class="header__left">
                     <div class="header__logo">
                         <nuxt-link to="/">
-                            <img src="/images/emblem.png">
-                            <span>{{ $t('app_title') }}</span>
+                            <img src="/logo.svg">
+                            <span v-html="$t('app_title')"></span>
                         </nuxt-link>
                     </div>
                 </div>
@@ -69,7 +57,7 @@
                             </li>
                         </ul>
 
-                        <ul class="header__settings header__list">
+                        <!-- <ul class="header__settings header__list">
                             <li>
                                 <button>
                                     <img src="/logos/audio.svg">
@@ -80,7 +68,7 @@
                                     <img src="/logos/eye.svg">
                                 </button>
                             </li>
-                        </ul>
+                        </ul> -->
 
                         <div class="header__lang">
                             <div class="item" 
@@ -98,13 +86,12 @@
                     </div>
                     <div class="header__bot">
                         <ul class="header__nav">
-                            
                             <li class="item" 
                                 v-for="item, index of menus" 
                                 :key="index"
                             >
                                 <nuxt-link class="item__link" 
-                                    :to="item?.url?.length > 0 ? `/${item?.slug ? item?.url : ''}${item?.slug ? '-' : ''}${'-',item?.slug}` : null"
+                                    :to="item?.url?.length > 0 ? `/${item?.slug ? item?.url : ''}${item?.slug ? '-' : ''}${'-',item?.slug}` : item?.url === 'cat' ? '' : ''"
                                 >
                                     <span>{{ item?.title }}</span>
                                     <img src="/logos/arrow-down.svg" v-if="item?.parent?.length > 0">
@@ -116,7 +103,7 @@
                                             v-for="subItem, index of item?.parent"
                                             :key="index"
                                         >
-                                            <nuxt-link :to="`/${subItem?.url}${subItem?.slug ? '-' : ''}${'-',subItem?.slug}`">
+                                            <nuxt-link :to="`/${subItem?.url}${subItem?.slug ? '-' : ''}${'-',subItem?.slug ? subItem?.slug : ''}`">
                                                 {{ subItem?.title }}
                                             </nuxt-link>
                                         </li>

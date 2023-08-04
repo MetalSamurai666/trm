@@ -5,10 +5,10 @@
 
 <template>
     <NuxtLayout>
-        <div class="home">
+        <div class="page">
             <Welcome />
             <Activity />
-            <Interactive />
+            <!-- <Interactive /> -->
             <Contents />
             <Sponsors />
         </div>

@@ -1,6 +1,7 @@
 <script setup>
     import { Splide, SplideSlide } from '@splidejs/vue-splide';
     import { useMainStore } from "@/store/main";
+
     const mainStore = useMainStore()
     const { locale } = useI18n()
 
@@ -9,7 +10,7 @@
         let res = await mainStore.getAllActivities(lang)
         if (res.data.value) {
             list.value = res.data.value
-            console.log(list.value);
+            // console.log(list.value)
         }
     }
 
@@ -34,9 +35,10 @@
                 <div class="activity__body">
                     <div class="activity__slider">
                         <Splide 
+                            class="slider splide"
                             :options="{ 
                                 type: 'loop',
-                                // rewind: true,
+                                rewind: false,
                                 perPage: 3.5,
                                 perMove: 1,
                                 gap: 20,
@@ -47,19 +49,16 @@
                                     arrow : 'splide__arrow slider-arrow',
                                     prev  : 'splide__arrow--prev slider-prev',
                                     next  : 'splide__arrow--next slider-next',
-
                                     pagination: 'splide__pagination slider-pagination',
                                     page      : 'splide__pagination__page slider-page',
                                 },
                                 breakpoints: {
                                     500: {
                                         perPage: 1,
-                                        gap: 10,
-                                        pagination: true,
+                                        destroy: true,
                                     }
                                 }
-                            }"
-                            class="slider splide"
+                            }"                        
                         >
                             <SplideSlide
                                 class="splide__slide slide" 
@@ -73,14 +72,15 @@
                                     <nuxt-link :to="`activity-${item?.slug}`" class="slide__title">
                                         {{ item?.title }}
                                     </nuxt-link>
-                                    <div class="slide__info" v-html="item?.content"></div>
+                                    <!-- <div class="slide__info" v-html="item?.content"></div> -->
+                                    
+                                    <div class="slide__btn">
+                                        <nuxt-link :to="`activity-${item?.slug}`" class="slide__title">
+                                            <img src="/logos/arrow-left.svg">
+                                        </nuxt-link>
+                                    </div>
                                 </div>
 
-                                <div class="slide__btn">
-                                    <nuxt-link :to="`activity-${item?.slug}`" class="slide__title">
-                                        <img src="/logos/arrow-left.svg">
-                                    </nuxt-link>
-                                </div>
                             </SplideSlide>
                         </Splide>
                     </div>

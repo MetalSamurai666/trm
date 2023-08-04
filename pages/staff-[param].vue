@@ -2,28 +2,30 @@
     import { useMainStore } from "@/store/main";
     const mainStore = useMainStore()
     const { locale } = useI18n()
+    const route = useRoute()
 
     const staff = ref([])
-    const getData = async (lang) => {
-        let res = await mainStore.getAllWorkers(lang)
+    const getData = async (param, lang) => {
+        let res = await mainStore.getAllWorkers(param, lang)
         if (res.data.value) {
             staff.value = res.data.value
+            console.log(staff.value);
         }
     }
 
     watch(
         () => locale.value,
-        () => getData(locale.value)
+        () => getData(route.params.param, locale.value)
     )
 
     onMounted(() => {
-        getData(locale.value)
+        getData(route.params.param, locale.value)
     })
 </script>
 
 <template>
     <NuxtLayout>
-        <div class="staff">
+        <div class="page">
             <Bread 
                 :bread-title="$t('staff')"
             />

@@ -1,6 +1,7 @@
 @import '../../main.scss';
 
 .worker{
+    @include tr(.3s);
     &__box{
         display: flex;
         gap: 20px;
@@ -16,6 +17,9 @@
         overflow: hidden;
         img{
             width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
     }
     &__right{
@@ -35,11 +39,28 @@
         margin-top: auto;
         display: flex;
         flex-direction: column;
+        width: 100%;
         gap: 15px;
+    }
+    &.manage{
+        .worker__bot{
+            padding: 10px 0px;
+            margin: 10px 0px;
+            border-top: 1px solid #e3e3e3;
+            border-bottom: 1px solid #e3e3e3;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
     }
     &__time{
         font-size: 14px;
         color: #7c7c7c;
+        @include df-aic;
+        gap: 10px;
+        img{
+            width: 20px;
+        }
     }
     &__contacts{
         display: flex;
@@ -71,6 +92,47 @@
                     display: none;
                 }
             }
+        }
+    }
+    &__more{
+        margin-top: 30px;
+        padding-bottom: 5px;
+        @include tr(.3s);
+        .item{
+            @include df-aic;
+            @include tr(.3s);
+            width: fit-content;
+            gap: 5px;
+            &__title{
+                font-weight: 500;
+            }
+            &__logo{
+                @include tr(.3s);
+                display: flex;
+                filter: invert(1);
+                &.show{
+                    transform: rotate(90deg);
+                }
+            }
+            &.show{
+                margin-bottom: 10px;
+            }
+        }
+        &.disabled{
+            pointer-events: none;
+            opacity: 0.5;
+        }
+    }
+    &__description{
+        max-height: 0px;
+        overflow-y: hidden;
+        font-size: 15px;
+        line-height: 18px;
+        max-height: 0;
+        transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        &.show{
+            max-height: 1000px;
+            transition: max-height 1s ease-in-out;
         }
     }
 }

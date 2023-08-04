@@ -12,6 +12,7 @@
     <div class="file">
         <div class="file__box">
             <div class="file__left">
+                <!-- <pre>{{ card }}</pre> -->
                 <div class="file__title">
                     <span>{{ card?.title }}</span>
                 </div>

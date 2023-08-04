@@ -35,7 +35,7 @@
 
 <template>
     <nuxt-layout>
-        <div>
+        <div class="page">
             <Bread 
                 :breadTitle="page?.title"
             />

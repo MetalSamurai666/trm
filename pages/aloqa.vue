@@ -4,7 +4,7 @@
 
 <template>
     <nuxt-layout>
-        <div class="contacts">
+        <div class="page">
             <Bread 
                 :bread-title="$t('contacts')"
             />

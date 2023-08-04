@@ -15,7 +15,7 @@
                         <div class="info__title">Aloqa</div>
 
                         <ul class="info__contacts">
-                            <li class="item">
+                            <!-- <li class="item">
                                 <div class="item__logo">
                                     <img src="/logos/phone.svg">
                                 </div>
@@ -24,7 +24,7 @@
                                     <a href="tel:+998 71 342-65-75">+998 71 342-65-75</a>
                                     <a href="tel:+998 71 542-21-56">+998 71 542-21-56</a>
                                 </div>
-                            </li>
+                            </li> -->
 
                             <li class="item">
                                 <div class="item__logo">

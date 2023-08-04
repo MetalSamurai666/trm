@@ -1,39 +1,32 @@
 <script setup> 
-import { Splide, SplideSlide } from "@splidejs/vue-splide";
+    import { Splide, SplideSlide } from "@splidejs/vue-splide";
 
-import imgEmblem from '@/public/images/emblem.png'
-import imgEdu from '@/public/logos/sponsors/edu.png'
-import imgUzedu from '@/public/logos/sponsors/uzedu.svg'
-import imgPiima from '@/public/logos/sponsors/piima.svg'
+    import imgEmblem from '/logo.svg'
+    import imgEdu from '/logos/sponsors/edu.png'
+    import imgUzedu from '/logos/sponsors/uzedu.svg'
+    import imgPiima from '/logos/sponsors/piima.svg'
 
-    const slider = ref([
-        {
-            img: imgEdu,
-            slug: 'https://edu.uz/uz',
-            title: 'O‘zbekiston Respublikasi oliy ta‘lim, fan va innovatsiyalar vazirligi'
-        },
-        {
-            img: imgUzedu,
-            slug: 'https://uzedu.uz/uz',
-            title: 'Maktabgacha va maktab ta‘limi vazirligi'
-        },
-        {
-            img: imgEmblem,
-            slug: 'https://president.uz/',
-            title: 'O‘zbekiston Respublikasi prezidenti'
-        },
-        {
-            img: imgEmblem,
-            slug: 'https://gov.uz/',
-            title: 'O‘zbekiston Respublikasi Hukumat portali'
-        },
-        {
-            img: imgPiima,
-            slug: 'https://piima.uz/',
-            title: 'Ixtisoslashtirilgan ta‘lim muassasalari agentligi'
-        },
-        
-    ])
+    import { useMainStore } from "@/store/main";
+    const mainStore = useMainStore()
+    const { locale } = useI18n()
+
+    const sponsors = ref([])
+    const getData = async (lang) => {
+        let res = await mainStore.getAllSponsors(lang)
+        if (res.data.value) {
+            sponsors.value = res.data.value
+            // console.log(sponsors.value, 'sponsors')
+        }
+    }
+
+    watch(
+        () => locale.value,
+        () => getData(locale.value)
+    )
+
+    onMounted(() => {
+        getData(locale.value)
+    })
 </script>
 
 <template>
@@ -52,6 +45,9 @@ import imgPiima from '@/public/logos/sponsors/piima.svg'
                         autoplay: true,
                         interval: 3000,
                         breakpoints: {
+                            1280: {
+                                perPage: 4
+                            },
                             500: {
                                 perPage: 1.5,
                                 gap: 10
@@ -62,16 +58,16 @@ import imgPiima from '@/public/logos/sponsors/piima.svg'
                 >
                     <SplideSlide 
                         class="splide__slide slide" 
-                        v-for="item, index of slider" 
+                        v-for="item, index of sponsors" 
                         :key="index"
                     >
                         <div class="slide__box">
                             <div class="slide__logo">
-                                <img :src="item?.img" alt="">
+                                <img :src="`${mainStore.url}/${item?.img}`">
                             </div>
 
                             <div class="slide__title">
-                                <a target="_blank"  :href="item?.slug">{{ item?.title }}</a>
+                                <a target="_blank" :href="item?.link">{{ item?.title }}</a>
                             </div>
                         </div>
                     </SplideSlide>

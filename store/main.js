@@ -3,23 +3,32 @@ import { defineStore } from 'pinia'
 export const useMainStore = defineStore('indexId', () => {
     const url = ref('https://trmapi.of-astora.uz')
     const menus = ref([])
+    const socials = ref([])
 
     const getMenus = async (lang) => {
         const res = await useFetch(url.value+`/api/menus/?lang=${lang}`)
         if (res.data.value) {
             menus.value = res.data.value
-            console.log(menus.value, 'menu');
+            // console.log(menus.value, 'menu');
+        }
+    }
+
+    const getSocials = async () => {
+        const res = await useFetch(url.value+`/api/socials/`)
+        if (res.data.value) {
+            socials.value = res.data.value
+            // console.log(socials.value, 'socials');
         }
     }
 
     const getAllActivities = (lang) => {
-        console.log(lang, 'act');
+        // console.log(lang, 'act');
         return useFetch(url.value+`/api/activity/?lang=${lang}`)
         .catch(er => console.log(er))
     }
 
     const getOneActivity = (slug, lang) => {
-        console.log(slug, lang);
+        // console.log(slug, lang);
         return useFetch(url.value+`/api/activity/${slug}/?lang=${lang}`)
         .catch(er => console.log(er))
     }
@@ -42,9 +51,9 @@ export const useMainStore = defineStore('indexId', () => {
         .catch(er => console.log(er))
     }
 
-    const getAllWorkers = (lang) => {
-        // console.log(lang);
-        return useFetch(url.value+`/api/worker/all/?lang=${lang}`)
+    const getAllWorkers = (type, lang) => {
+        // console.log(type, lang);
+        return useFetch(url.value+`/api/worker/${type}/?lang=${lang}`)
         .catch(er => console.log(er))
     }
 
@@ -96,20 +105,28 @@ export const useMainStore = defineStore('indexId', () => {
         .catch(er => console.log(er))
     }
 
+    const getAllSponsors = (lang) => {
+        // console.log(lang)
+        return useFetch(url.value+`/api/sponsors/?lang=${lang}`)
+        .catch(er => console.log(er))
+    }
+
     const getFooter = (lang) => {
         // console.log(lang)
         return useFetch(url.value+`/api/footer/?lang=${lang}`)
         .catch(er => console.log(er))
     }
 
-    const getSocials = () => {
-        return useFetch(url.value+`/api/socials/`)
+    const getDocs = (slug, lang) => {
+        // console.log(slug, lang, 'docs')
+        return useFetch(url.value+`/api/docs/${slug}/?lang=${lang}`)
         .catch(er => console.log(er))
     }
 
 
     return {
         menus,
+        socials,
         url,
         getMenus,
         getAllActivities,
@@ -126,7 +143,9 @@ export const useMainStore = defineStore('indexId', () => {
         getOneNews,
         getNewsSlider,
         getNewsMain,
+        getAllSponsors,
         getFooter,
-        getSocials
+        getSocials,
+        getDocs
     }
 })

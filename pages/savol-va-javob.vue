@@ -1,5 +1,4 @@
 <script setup>
-    
     import { useMainStore } from "@/store/main";
     const mainStore = useMainStore()
     const { locale } = useI18n()
@@ -26,7 +25,7 @@
 
 <template>
     <NuxtLayout>
-        <div class="questions">
+        <div class="page">
             <Bread 
                 :bread-title="$t('faq')"
             />

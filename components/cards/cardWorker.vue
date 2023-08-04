@@ -1,15 +1,21 @@
 <script setup>
     import { useMainStore } from "@/store/main"
 
+    const route = useRoute()
     const mainStore = useMainStore()
 
     defineProps({
         worker: Object
     })
+
+    const showDesc = ref(false)
+    function openDescription() {
+        showDesc.value = !showDesc.value
+    }
 </script>
 
 <template>
-    <div class="worker">
+    <div :class="route.params.param == 'manage' ? 'worker manage' : ''">
         <div class="worker__box">
             <div class="worker__left">
                 <div class="worker__img">
@@ -27,7 +33,10 @@
                 </div>
                 
                 <div class="worker__bot">                    
-                    <div class="worker__time">{{ worker?.work_time }}</div>
+                    <div class="worker__time">
+                        <img src="/logos/clock.svg" alt="">
+                        <span>{{ worker?.work_time }}</span>
+                    </div>
 
                     <ul class="worker__contacts">
                         <li class="item">
@@ -49,6 +58,18 @@
                             <a :href="`mailto:${worker?.mail}`">{{ worker?.mail }}</a>
                         </li>
                     </ul>
+                </div>
+
+                <div :class="worker?.description ? 'worker__more' : 'worker__more disabled'" v-if="route.params.param == 'manage'">
+                    <button :class="showDesc ? 'item show' : 'item'" @click="openDescription">
+                        <div class="item__title">{{ $t('more') }}</div>
+                        <div :class="showDesc ? 'item__logo show' : 'item__logo'"><img src="/logos/arrow-right.svg"></div>
+                    </button>
+                    
+                    <div :class="showDesc ? 'worker__description show' : 'worker__description'"
+                        v-if="worker?.description?.length > 0" 
+                        v-html="worker?.description">
+                    </div>
                 </div>
             </div>
         </div>

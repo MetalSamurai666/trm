@@ -25,7 +25,7 @@
 
 <template>
     <nuxt-layout>
-        <div>
+        <div class="page">
             <Bread 
                 :breadTitle="newbie?.news?.title"
                 :breadType="'news'"

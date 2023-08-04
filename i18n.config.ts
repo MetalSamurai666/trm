@@ -4,26 +4,48 @@ export default defineI18nConfig(() => ({
     messages: {
         uz: {
             app_title_short: 'TRM',
-            app_title: 'O‘zbekiston Respublikasi Ta’limni rivojlantirish respublika ilmiy-metodik markazi',
+            app_title: 'O‘zbekiston Respublikasi <br> Ta’limni rivojlantirish <br> respublika ilmiy-metodik <br> markazi',
             main: 'Bosh sahifa',
             faq: 'Savol va javob',
             news: 'Yangiliklar',
+            open_data: 'Ochiq ma‘lumotlar',
+            files: 'Hujjatlar',
             contacts: 'Aloqa',
             staff: 'Rahbariyat',
             other_news: 'Boshqa yangiliklar',
-            other_news_no: 'Boshqa yangiliklar yo`q',
+            other_news_no: 'Boshqa yangiliklar yo‘q',
             activity: 'Faoliyat',
             address: 'Toshkent shahri, Navoiy ko‘chasi, 30-uy',
             more: 'Batafsil',
             all_news: 'Barcha yangiliklar',
-            copyright: 'Materialdan to‘liq yoki qisman, trm.uz manbasi ko‘rsatilishi shart. Saytni tayyorladi'
+            copyright: 'Materialdan to‘liq yoki qisman, trm.uz manbasi ko‘rsatilishi shart.'
+        },
+        uzk: {
+            app_title_short: 'ТРМ',
+            app_title: 'Ўзбекистон Республикаси таълимни ривожлантириш республика илмий-методик маркази',
+            main: 'Бош саҳифа',
+            faq: 'Савол ва жавоб',
+            news: 'Янгиликлар',
+            open_data: 'Очиқ маълумотлар',
+            files: 'Ҳужжатлар',
+            contacts: 'Алоқа',
+            staff: 'Раҳбарият',
+            other_news: 'Бошқа янгиликлар',
+            other_news_no: 'Бошқа янгиликлар йўқ',
+            activity: 'Фаолият',
+            address: 'Тошкент шаҳри, Навоий кўчаси, 30-уй',
+            more: 'Батафсил',
+            all_news: 'Барча янгиликлар',
+            copyright: 'Материалдан тўлиқ ёки қисман, trm.uz манбаси кўрсатилиши шарт.'
         },
         ru: {
             app_title_short: 'ЦРО',
-            app_title: 'Республиканский научно-методический центр развития образования Республики Узбекистан',
+            app_title: 'Республиканский <br> научно-методический <br> центр развития образования Республики Узбекистан',
             main: 'Главная',
             faq: 'Ответы на вопросы',
             news: 'Новости',
+            open_data: 'Открытые данные',
+            files: 'Документы',
             contacts: 'Контакты',
             staff: 'Руководство',
             other_news: 'Другие новости',
@@ -32,14 +54,16 @@ export default defineI18nConfig(() => ({
             address: 'Город Ташкент, улица Навои, 30-дом',
             more: 'Подробнее',
             all_news: 'Все новости',
-            copyright: 'Из материала, полностью или частично, trm.uz необходимо указать источник. Сделано в'
+            copyright: 'Из материала, полностью или частично, необходимо указать trm.uz как источник.'
         },
         en: {
             app_title_short: 'CDE',
-            app_title: 'Republican scientific and methodological center for the development of education of the Republic of Uzbekistan',
+            app_title: 'Republican scientific and <br> methodological center for <br> the development of education <br> of the Republic of Uzbekistan',
             main: 'Main page',
             faq: 'FAQ',
             news: 'News',
+            open_data: 'Open data',
+            files: 'Documents',
             contacts: 'Contacts',
             staff: 'Secretariat',
             other_news: 'Other news',
@@ -48,7 +72,7 @@ export default defineI18nConfig(() => ({
             address: '30, Navoi Street, Tashkent City',
             more: 'More',
             all_news: 'All news',
-            copyright: 'From the material, in whole or in part, trm.uz must be specified as the source. Made in'
+            copyright: 'From the material, in whole or in part, trm.uz must be specified as the source.'
         }
     }
 }))

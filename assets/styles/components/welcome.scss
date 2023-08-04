@@ -94,8 +94,14 @@
                 margin-top: 5px;
                 line-height: 26px;
                 // @include oh(2);
-                max-height: 75px;
+                // max-height: 75px;
                 overflow: hidden;
+                u{
+                    display: none;
+                }
+                br{
+                    display: none;
+                }
                 img{
                     display: none;
                 }

@@ -7,7 +7,7 @@
   const getData = async (val) => {
     await mainStore.getMenus(val)
     useSeoMeta({
-      title: t('app_title_short')+' | '+t('app_title'),
+      title: t('app_title_short')+' | '+t('app_title').split('<br>').join(''),
       meta: [
         {
           hid: 'description',
@@ -16,6 +16,10 @@
         }
       ]
     })
+  }
+
+  const getSocials = async () => {
+    await mainStore.getSocials()
   }
 
   watch(
@@ -27,11 +31,22 @@
 
   onMounted(() => {
     getData(locale.value)
+    getSocials()
   })
 
 </script>
 
 <template>
-  <meta name="theme-color" content="#1C4077" />
-  <NuxtPage />
+  <div class="app">
+    <meta name="theme-color" content="#1C4077" />
+    <NuxtPage />
+  </div>
 </template>
+
+
+<style lang="scss">
+  .app{
+    display: flex;
+    flex-direction: column;
+  }
+</style>

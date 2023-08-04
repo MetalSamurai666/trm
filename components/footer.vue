@@ -1,8 +1,9 @@
 <script setup>
-
+    import { storeToRefs } from "pinia";
     import { useMainStore } from "@/store/main";
-    const mainStore = useMainStore()
     const { locale } = useI18n()
+    const mainStore = useMainStore()
+    const { socials }  = storeToRefs(mainStore)
 
     const list = ref([])
     const getData = async (lang) => {
@@ -10,15 +11,6 @@
         if (res.data.value) {
             list.value = res.data.value
             // console.log(list.value);
-        }
-    }
-
-    const socials = ref([])
-    const getSocials = async () => {
-        let res = await mainStore.getSocials()
-        if (res.data.value) {
-            socials.value = res.data.value
-            // console.log(socials.value);
         }
     }
 
@@ -33,7 +25,6 @@
 
     onMounted(() => {
         getData(locale.value)
-        getSocials()
     })
 </script>
 
@@ -113,8 +104,9 @@
                     </ul>
                 </div>
                 
+                <!-- <a href="https://grandsoft.uz">GRANDSOFT.UZ</a> -->
                 <div class="footer__bot">
-                    <p class="footer__copyright">Copyright © 2023. {{ $t('copyright') }} - <a href="https://grandsoft.uz">GRANDSOFT.UZ</a></p>
+                    <p class="footer__copyright">Copyright © 2023. {{ $t('copyright') }}</p>
                 </div>
             </div>
         </div>

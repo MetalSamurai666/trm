@@ -27,7 +27,7 @@
 
 <template>
     <nuxt-layout>
-        <div class="category">
+        <div class="page">
             <Bread 
                 :breadTitle="$t('news')"
             />

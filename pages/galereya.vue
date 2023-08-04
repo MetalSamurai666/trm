@@ -24,7 +24,7 @@
 
 <template>
     <NuxtLayout>
-        <div class="gallery">
+        <div class="page">
             <ImgModal />
             <Bread
                 :bread-title="'Galereya'"
