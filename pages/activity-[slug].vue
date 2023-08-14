@@ -9,7 +9,7 @@
         let res = await mainStore.getOneActivity(route.params.slug, lang)
         if (res.data.value) {
             page.value = res.data.value
-            console.log(page.value, 'page')
+            // console.log(page.value, 'page')
         }
     }
 
@@ -18,7 +18,7 @@
         let res = await mainStore.getNewsSlider(lang)
         if (res.data.value) {
             rand.value = res.data.value
-            console.log(rand.value);
+            // console.log(rand.value);
         }
     }
 

@@ -18,7 +18,8 @@ export default defineI18nConfig(() => ({
             address: 'Toshkent shahri, Navoiy ko‘chasi, 30-uy',
             more: 'Batafsil',
             all_news: 'Barcha yangiliklar',
-            copyright: 'Materialdan to‘liq yoki qisman, trm.uz manbasi ko‘rsatilishi shart.'
+            copyright: 'Materialdan to‘liq yoki qisman, trm.uz manbasi ko‘rsatilishi shart.',
+            testing: 'Sayt test rejimida ishlamoqda'
         },
         uzk: {
             app_title_short: 'ТРМ',
@@ -36,7 +37,8 @@ export default defineI18nConfig(() => ({
             address: 'Тошкент шаҳри, Навоий кўчаси, 30-уй',
             more: 'Батафсил',
             all_news: 'Барча янгиликлар',
-            copyright: 'Материалдан тўлиқ ёки қисман, trm.uz манбаси кўрсатилиши шарт.'
+            copyright: 'Материалдан тўлиқ ёки қисман, trm.uz манбаси кўрсатилиши шарт.',
+            testing: 'Сайт тест режимида ишламоқда'
         },
         ru: {
             app_title_short: 'ЦРО',
@@ -54,7 +56,8 @@ export default defineI18nConfig(() => ({
             address: 'Город Ташкент, улица Навои, 30-дом',
             more: 'Подробнее',
             all_news: 'Все новости',
-            copyright: 'Из материала, полностью или частично, необходимо указать trm.uz как источник.'
+            copyright: 'Из материала, полностью или частично, необходимо указать trm.uz как источник.',
+            testing: 'Сайт работает на тестовом режиме'
         },
         en: {
             app_title_short: 'CDE',
@@ -72,7 +75,8 @@ export default defineI18nConfig(() => ({
             address: '30, Navoi Street, Tashkent City',
             more: 'More',
             all_news: 'All news',
-            copyright: 'From the material, in whole or in part, trm.uz must be specified as the source.'
+            copyright: 'From the material, in whole or in part, trm.uz must be specified as the source.',
+            testing: 'Site is on test mode'
         }
     }
 }))

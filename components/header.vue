@@ -13,6 +13,12 @@
         return (locales.value)
     })
 
+    const localeCookie = useCookie('localeCookie')
+    function setDefaultLocale(lang){
+        setLocale(lang)
+        localeCookie.value = lang
+    }
+
 /* Mobile Menu */
     function openMenu() {
         menuStore.menuChange()
@@ -77,7 +83,7 @@
                             >
                                 <button
                                     :class="lang.code == locale ? 'active' : ''"
-                                    @click.prevent.stop="setLocale(lang.code)"
+                                    @click.prevent.stop="setDefaultLocale(lang.code)"
                                 >
                                     <span>{{ lang.name }}</span>
                                 </button>

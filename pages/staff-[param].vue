@@ -9,7 +9,7 @@
         let res = await mainStore.getAllWorkers(param, lang)
         if (res.data.value) {
             staff.value = res.data.value
-            console.log(staff.value);
+            // console.log(staff.value);
         }
     }
 

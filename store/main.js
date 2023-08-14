@@ -6,6 +6,7 @@ export const useMainStore = defineStore('indexId', () => {
     const socials = ref([])
 
     const getMenus = async (lang) => {
+        console.log(lang)
         const res = await useFetch(url.value+`/api/menus/?lang=${lang}`)
         if (res.data.value) {
             menus.value = res.data.value

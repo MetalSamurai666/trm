@@ -25,12 +25,12 @@
   watch(
     () => locale.value,
     () => {
-      getData(locale.value)
+      getData(useCookie('localeCookie').value)
     }
   )
 
   onMounted(() => {
-    getData(locale.value)
+    getData(useCookie('localeCookie').value)
     getSocials()
   })
 

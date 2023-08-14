@@ -120,8 +120,10 @@
                         display: none;
                     }
                     &__logo{
+                        width: 35px;
+                        height: 35px;
                         img{
-                            width: 30px;
+                            width: 100%;
                         }
                     }
                     &__title{

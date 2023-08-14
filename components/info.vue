@@ -7,7 +7,7 @@
         <div class="container">
             <div class="info__box">
                 <div class="info__map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d374.54918159233847!2d69.24967293584365!3d41.322056983247634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b74c66ce943%3A0xd6304c75366e945f!2sAxborot%20va%20ommaviy%20kommunikatsiyalar%20agentligi!5e0!3m2!1sen!2s!4v1690885986155!5m2!1sen!2s" width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d749.1029092131345!2d69.2493549!3d41.3216615!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8ba3fee10e49%3A0x733f91debee5d62c!2sTa%CA%BClimni%20Rivojlantirish%20markazi!5e0!3m2!1sru!2s!4v1691389146617!5m2!1sru!2s" width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
                 <div class="info__body">
@@ -43,7 +43,7 @@
                                 </div>
 
                                 <div class="item__info">
-                                    <a href="https://goo.gl/maps/dh1SrkmANYUUK9146">Toshkent shahri, Navoiy ko‘chasi, 30-uy</a>
+                                    <a href="https://goo.gl/maps/dfV8AivYVXdCuBe89">Toshkent shahri, Navoiy ko‘chasi, 30-uy</a>
                                 </div>
                             </li>
 

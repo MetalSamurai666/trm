@@ -2,6 +2,7 @@
 
 <template>
     <div>
+        <Test />
         <Header />
         <Menu />
         <slot/>

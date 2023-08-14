@@ -53,6 +53,9 @@
                                     page      : 'splide__pagination__page slider-page',
                                 },
                                 breakpoints: {
+                                    800: {
+                                        perPage: 2.5
+                                    },
                                     500: {
                                         perPage: 1,
                                         destroy: true,

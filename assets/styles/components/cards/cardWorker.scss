@@ -135,4 +135,24 @@
             transition: max-height 1s ease-in-out;
         }
     }
+
+    @media (max-width: 500px) {
+        &__box{
+            flex-direction: column;
+        }
+        &__img{
+            width: 100%;
+            height: 350px;
+            object-fit: contain;
+            object-position: center;
+        }
+        &__contacts{
+            flex-direction: column;
+            .item{
+                &::after{
+                    display: none;
+                }
+            }
+        }
+    }
 }

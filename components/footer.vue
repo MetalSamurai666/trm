@@ -49,7 +49,7 @@
                                     <div class="item__logo">
                                         <img src="/logos/location.svg">
                                     </div>
-                                    <a href="https://goo.gl/maps/dh1SrkmANYUUK9146"><span>{{ $t('address') }}</span></a>
+                                    <a href="https://goo.gl/maps/dh1SrkmANYUUK9146" class="item__info"><span>{{ $t('address') }}</span></a>
                                 </li>
                                 <!-- <li class="item__link">
                                     <div class="item__logo">

@@ -44,4 +44,25 @@
         color: #6b6b6b;
         font-weight: 500;
     }
+
+    @media (max-width: 500px) {
+        &__box{
+            flex-direction: column;
+            padding: 15px;
+        }
+        &__left, &__mid, &__right{
+            flex-basis: 100%;
+            width: 100%;
+        }
+        &__mid{
+            border: 0;
+            border-top: 1px solid #BFBFBF;
+            border-bottom: 1px solid #BFBFBF;
+            padding: 10px 0px;
+            font-size: 15px;
+        }
+        &__date{
+            font-size: 14px;
+        }
+    }
 }

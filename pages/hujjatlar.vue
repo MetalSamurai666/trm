@@ -8,7 +8,7 @@
         let res = await mainStore.getAllFiles(lang)
         if (res.data.value) {
             docs.value = res.data.value
-            console.log(docs.value, 'open data')
+            // console.log(docs.value, 'open data')
         }
     }
 

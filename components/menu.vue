@@ -13,17 +13,26 @@
     const { menus }  = storeToRefs(mainStore)
     const router = useRouter()
 
+    const { locale, locales, setLocale } = useI18n()
+    const availableLocales = computed(() => {
+        return (locales.value)
+    })
+
 /* Getting CATegorieS🐈 */
-    async function changeRoute(slug, url) {
-        console.log(slug);
-        // if (url.length > 0) {
-        //     if (url.length > 0) {
-        //         await router.push(`/${url}`)
-        //     } else {
-        //         await router.push(`/${slug}-${}`)
-        //     }
-        // }
-        await router.push(`/${slug}`)
+     function changeRoute(slug, url) {
+        console.log(slug, url);
+        if (url.length > 0) {
+            if (slug) {
+                 router.push(`/${url}-${slug}`)
+            } else {
+                return false
+            }
+        } else if (url == 'cat') {
+            return false
+        } else {
+            return false
+        }
+        // await router.push(`/${slug}`)
         menuStore.menuChange()
     }
 
@@ -63,11 +72,17 @@
                         v-for="item, index of benefitsv" :key="index"
                         :class="item?.active ? 'item active' : 'item'" 
                         >
-                        <NuxtLink :class="item?.parent?.length > 0 ? 'item__link listly' : 'item__link'"
+                        <nuxt-link :class="item?.parent?.length > 0 ? 'item__link listly' : 'item__link'" 
+                            @click="changeRoute(item?.slug, item?.url)"
+                            
+                        >
+                            <span>{{ item?.title }}</span>
+                        </nuxt-link>
+                        <!-- <NuxtLink :class="item?.parent?.length > 0 ? 'item__link listly' : 'item__link'"
                             @click="changeRoute(item?.slug, item?.url)"
                             >
                             {{ item.title }}
-                        </NuxtLink>
+                        </NuxtLink> -->
 
                         <span class="item__open"
                             v-if="item?.parent?.length > 0" 
@@ -78,41 +93,36 @@
                         <ul class="item__list" v-if="item?.parent">
                             <li v-for="subItem, index of item?.parent" :key="index">
                                 <NuxtLink 
-                                    :to="subItem?.slug" 
+                                    :to="`/${subItem?.url}${subItem?.slug ? '-' : ''}${'-',subItem?.slug ? subItem?.slug : ''}`"
                                     @click="closeMenu">
                                     {{ subItem?.title }}
                                 </NuxtLink>
                             </li>
                         </ul>
                     </li>
+
+                    <li class="item">
+                        <nuxt-link class="item__link" to="/aloqa" @click="closeMenu">
+                            <span>{{ $t('contacts') }}</span>
+                        </nuxt-link>
+                    </li>
                 </ul>
             </div>
             <div class="menu__bot">
                 <ul class="menu__more">
-                    <!-- <li class="item">
-                        <div class="item__logo">
-                            <img src="@/assets/logo/basic/globe.svg">
-                        </div>
-                        <div class="menu__lang">
-                            <div class="item" 
-                                v-for="lang in availableLocales"
-                                :key="lang.code"
+                    <div class="menu__lang">
+                        <div class="item" 
+                            v-for="lang in availableLocales"
+                            :key="lang.code"
+                        >
+                            <button
+                                :class="lang.code == locale ? 'active' : ''"
+                                @click.prevent.stop="setLocale(lang.code)"
                             >
-                                <button
-                                    :class="lang.code == locale ? 'active' : ''"
-                                    @click.prevent.stop="setLocale(lang.code), changeLang(lang.code)"
-                                >
-                                    <span>{{ lang.name }}</span>
-                                </button>
-                            </div>
+                                <span>{{ lang.name }}</span>
+                            </button>
                         </div>
-                    </li> -->
-                    <!-- <li class="item">
-                        <div class="item__logo">
-                            <img src="@/assets/logo/basic/calendar.svg">
                         </div>
-                        <span class="item__title">13/06/2023</span>
-                    </li> -->
                     <li class="item">
                         <div class="item__logo">
                             <img src="/logos/phone.svg">

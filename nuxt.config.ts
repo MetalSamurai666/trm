@@ -10,6 +10,8 @@ export default defineNuxtConfig({
     compressPublicAssets: true
   },
   i18n: {
+    detectBrowserLanguage: false,
+    defaultLocale: 'uz',
     strategy: 'no_prefix',
     vueI18n: './i18n.config.ts',
     locales: [
@@ -34,6 +36,5 @@ export default defineNuxtConfig({
         name: "Eng",
       },
     ],
-    defaultLocale: "uz"
   },
 })

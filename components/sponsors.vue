@@ -1,11 +1,6 @@
 <script setup> 
     import { Splide, SplideSlide } from "@splidejs/vue-splide";
 
-    import imgEmblem from '/logo.svg'
-    import imgEdu from '/logos/sponsors/edu.png'
-    import imgUzedu from '/logos/sponsors/uzedu.svg'
-    import imgPiima from '/logos/sponsors/piima.svg'
-
     import { useMainStore } from "@/store/main";
     const mainStore = useMainStore()
     const { locale } = useI18n()
@@ -47,6 +42,9 @@
                         breakpoints: {
                             1280: {
                                 perPage: 4
+                            },
+                            800: {
+                                perPage: 2.5
                             },
                             500: {
                                 perPage: 1.5,

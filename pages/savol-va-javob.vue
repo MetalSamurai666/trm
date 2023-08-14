@@ -8,7 +8,7 @@
         let res = await mainStore.getAllQuestions(lang)
         if (res.data.value) {
             list.value = res.data.value
-            console.log(list.value, 'list')
+            // console.log(list.value, 'list')
         }
     }
 

@@ -6,7 +6,7 @@
     })
 
     function clickCallback(pageNum) {
-        console.log(pageNum);
+        // console.log(pageNum);
     }
 
     const pageCount = ref(
