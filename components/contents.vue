@@ -28,7 +28,7 @@
         <div class="container">
             <div class="contents__box">
                 <div class="contents__head">
-                    <div class="contents__title">Axborot xizmati</div>
+                    <div class="contents__title">{{ $t('information_service') }}</div>
                 </div>
                 <div class="contents__body">
                     <div class="contents__left">

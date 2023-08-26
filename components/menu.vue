@@ -3,10 +3,8 @@
     import { storeToRefs } from 'pinia';
     import { useMenuStore } from '@/store/menu';
     import { useMainStore } from "@/store/main";
-
     
     /* Consts */
-    
     const mainStore = useMainStore()
     const menuStore = useMenuStore()
     const { menuState } = storeToRefs(menuStore)
@@ -19,11 +17,11 @@
     })
 
 /* Getting CATegorieS🐈 */
-     function changeRoute(slug, url) {
+    function changeRoute(slug, url) {
         console.log(slug, url);
         if (url.length > 0) {
             if (slug) {
-                 router.push(`/${url}-${slug}`)
+                router.push(`/${url}-${slug}`)
             } else {
                 return false
             }

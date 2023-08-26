@@ -1,6 +1,6 @@
 <script setup>
     import { storeToRefs } from "pinia";
-    import { useMenuStore } from '@/store/menu';
+    import { useMenuStore } from '@/store/menu.js';
     import { useMainStore } from "@/store/main";
 
     const menuStore = useMenuStore()

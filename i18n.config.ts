@@ -16,10 +16,18 @@ export default defineI18nConfig(() => ({
             other_news_no: 'Boshqa yangiliklar yo‘q',
             activity: 'Faoliyat',
             address: 'Toshkent shahri, Navoiy ko‘chasi, 30-uy',
+            contact_us: 'Biz bilan bog`laning',
             more: 'Batafsil',
             all_news: 'Barcha yangiliklar',
             copyright: 'Materialdan to‘liq yoki qisman, trm.uz manbasi ko‘rsatilishi shart.',
-            testing: 'Sayt test rejimida ishlamoqda'
+            testing: 'Sayt test rejimida ishlamoqda',
+            name: 'Ism',
+            surname: 'Familiya',
+            number: 'Telefon raqami',
+            email: 'Elektron pochta',
+            message: 'Xabar',
+            send: 'Yuborish',
+            information_service: 'Axborot xizmati'
         },
         uzk: {
             app_title_short: 'ТРМ',
@@ -35,10 +43,18 @@ export default defineI18nConfig(() => ({
             other_news_no: 'Бошқа янгиликлар йўқ',
             activity: 'Фаолият',
             address: 'Тошкент шаҳри, Навоий кўчаси, 30-уй',
+            contact_us: 'Биз билан боғланинг',
             more: 'Батафсил',
             all_news: 'Барча янгиликлар',
             copyright: 'Материалдан тўлиқ ёки қисман, trm.uz манбаси кўрсатилиши шарт.',
-            testing: 'Сайт тест режимида ишламоқда'
+            testing: 'Сайт тест режимида ишламоқда',
+            name: 'Исм',
+            surname: 'Фамилия',
+            number: 'Телефон рақами',
+            email: 'Электрон почта',
+            message: 'Хабар',
+            send: 'Юбориш',
+            information_service: 'Ахборот хизмати'
         },
         ru: {
             app_title_short: 'ЦРО',
@@ -54,10 +70,18 @@ export default defineI18nConfig(() => ({
             other_news_no: 'Других новостей нет',
             activity: 'Деятельность',
             address: 'Город Ташкент, улица Навои, 30-дом',
+            contact_us: 'Свяжитесь с нами',
             more: 'Подробнее',
             all_news: 'Все новости',
             copyright: 'Из материала, полностью или частично, необходимо указать trm.uz как источник.',
-            testing: 'Сайт работает на тестовом режиме'
+            testing: 'Сайт работает на тестовом режиме',
+            name: 'Имя',
+            surname: 'Фамилия',
+            number: 'Номер телефона',
+            email: 'Электронная почта',
+            message: 'Сообщение',
+            send: 'Отправить',
+            information_service: 'Информационная служба'
         },
         en: {
             app_title_short: 'CDE',
@@ -73,10 +97,18 @@ export default defineI18nConfig(() => ({
             other_news_no: 'No other news',
             activity: 'Activity',
             address: '30, Navoi Street, Tashkent City',
+            contact_us: 'Contact us',
             more: 'More',
             all_news: 'All news',
             copyright: 'From the material, in whole or in part, trm.uz must be specified as the source.',
-            testing: 'Site is on test mode'
+            testing: 'Site is on test mode',
+            name: 'Name',
+            surname: 'Second name',
+            number: 'Phone number',
+            email: 'E-mail',
+            message: 'Message',
+            send: 'Send',
+            information_service: 'Information Service'
         }
     }
 }))

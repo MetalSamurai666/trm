@@ -12,7 +12,7 @@
 
                 <div class="info__body">
                     <div class="info__left">
-                        <div class="info__title">Aloqa</div>
+                        <div class="info__title">{{ $t('contacts') }}</div>
 
                         <ul class="info__contacts">
                             <!-- <li class="item">
@@ -43,7 +43,7 @@
                                 </div>
 
                                 <div class="item__info">
-                                    <a href="https://goo.gl/maps/dfV8AivYVXdCuBe89">Toshkent shahri, Navoiy ko‘chasi, 30-uy</a>
+                                    <a href="https://goo.gl/maps/dfV8AivYVXdCuBe89">{{ $t('address') }}</a>
                                 </div>
                             </li>
 
@@ -52,35 +52,35 @@
                     </div>
 
                     <div class="info__right">
-                        <div class="info__title">Biz bilan bog`laning</div>
+                        <div class="info__title">{{ $t('contact_us') }}</div>
 
                         <ul class="info__inputs">
                             <li class="item">
-                                <div class="item__title">Ism</div>
+                                <div class="item__title">{{ $t('name') }}</div>
                                 <div class="item__input">
                                     <input type="text">
                                 </div>
                             </li>
                             <li class="item">
-                                <div class="item__title">Familiya</div>
+                                <div class="item__title">{{ $t('surname') }}</div>
                                 <div class="item__input">
                                     <input type="text">
                                 </div>
                             </li>
                             <li class="item">
-                                <div class="item__title">Telefon raqami</div>
+                                <div class="item__title">{{ $t('number') }}</div>
                                 <div class="item__input">
                                     <input type="tel">
                                 </div>
                             </li>
                             <li class="item">
-                                <div class="item__title">Elektron pochta</div>
+                                <div class="item__title">{{ $t('email') }}</div>
                                 <div class="item__input">
                                     <input type="email">
                                 </div>
                             </li>
                             <li class="item big">
-                                <div class="item__title">Xabar</div>
+                                <div class="item__title">{{ $t('message') }}</div>
                                 <div class="item__input">
                                     <textarea></textarea>
                                 </div>
@@ -88,7 +88,7 @@
                         </ul>
 
                         <div class="info__send">
-                            <button>Yuborish</button>
+                            <button>{{ $t('send') }}</button>
                         </div>
                     </div>
                 </div>

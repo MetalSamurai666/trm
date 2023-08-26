@@ -1,56 +1,43 @@
 <template>
-    <div class="test">
-        <div class="position-relative marquee-container d-none d-sm-block">
-            <div class="marquee d-flex justify-content-around">
+    <div :class="testState ? 'test' : 'test closed'">
                 <span>{{ $t('testing') }}</span>
-
-            </div>
-            <div class="marquee marquee2 d-flex justify-content-around">
-                <span>{{ $t('testing') }}</span>
-
-            </div>
-        </div>
+                <button class="close" @click="close">
+                    <img src="/logos/close.svg">
+                </button>
     </div>
 </template>
 
-<script setup> 
-
+<script setup>
+    const testState = ref(true)
+    function close() {
+        testState.value = !testState.value
+    }
 </script>
 
 <style lang="scss">
     @import '@/assets/styles/main.scss';
-
-    .marquee-container {
-        height: 30px;
-        overflow: hidden;
-        line-height: 30px;
-        position: relative;
+    .test{
         background-color: #ffc400;
-        font-weight: 500;
-        .marquee {
-            top: 0;
-            left: 100%;
-            width: 100%;
-            overflow: hidden;
-            position: absolute;
-            white-space: nowrap;
-            animation: marquee 30s linear infinite;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 20;
+        padding: 7px 10px;
+        transition: .2s linear;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        .close{
+            display: flex;
+            margin-left: 15px;
+            img{
+                width: 15px;
+                height: 15px;
+                filter: invert(1);
+            }
         }
-
-        .marquee2 {
-            animation-delay: 15s;
-        }
-        b {
-            padding-left: 10px;
-        }
-        }
-
-        @keyframes marquee {
-        0% {
-            left: 100%;
-        }
-        100% {
-            left: -100%
+        &.closed{
+            top: -100px;
         }
     }
 </style>

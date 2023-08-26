@@ -5,6 +5,8 @@
     const mainStore = useMainStore()
     const { socials }  = storeToRefs(mainStore)
 
+    const cooLang = useCookie('cooLang')
+
     const list = ref([])
     const getData = async (lang) => {
         let res = await mainStore.getFooter(lang)
@@ -13,10 +15,6 @@
             // console.log(list.value);
         }
     }
-
-    onMounted(() => {
-        getData(locale.value)
-    })
 
     watch(
         () => locale.value,
