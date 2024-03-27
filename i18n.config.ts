@@ -19,7 +19,7 @@ export default defineI18nConfig(() => ({
             contact_us: 'Biz bilan bog`laning',
             more: 'Batafsil',
             all_news: 'Barcha yangiliklar',
-            copyright: 'Materialdan to‘liq yoki qisman, trm.uz manbasi ko‘rsatilishi shart.',
+            copyright: 'Materialdan to‘liq yoki qisman foydalanganda, trm.uz manbasi ko‘rsatilishi shart.',
             testing: 'Sayt test rejimida ishlamoqda',
             name: 'Ism',
             surname: 'Familiya',
@@ -27,7 +27,8 @@ export default defineI18nConfig(() => ({
             email: 'Elektron pochta',
             message: 'Xabar',
             send: 'Yuborish',
-            information_service: 'Axborot xizmati'
+            information_service: 'Axborot xizmati',
+            required: '* bilan belgilangan maydonlarni to`ldiring'
         },
         uzk: {
             app_title_short: 'ТРМ',
@@ -46,7 +47,7 @@ export default defineI18nConfig(() => ({
             contact_us: 'Биз билан боғланинг',
             more: 'Батафсил',
             all_news: 'Барча янгиликлар',
-            copyright: 'Материалдан тўлиқ ёки қисман, trm.uz манбаси кўрсатилиши шарт.',
+            copyright: 'Материалдан тўлиқ ёки қисман фойдаланганда, trm.uz манбаси кўрсатилиши шарт.',
             testing: 'Сайт тест режимида ишламоқда',
             name: 'Исм',
             surname: 'Фамилия',
@@ -54,7 +55,8 @@ export default defineI18nConfig(() => ({
             email: 'Электрон почта',
             message: 'Хабар',
             send: 'Юбориш',
-            information_service: 'Ахборот хизмати'
+            information_service: 'Ахборот хизмати',
+            required: '* билан белгиланган майдонларни тўлдиринг'
         },
         ru: {
             app_title_short: 'ЦРО',
@@ -81,7 +83,8 @@ export default defineI18nConfig(() => ({
             email: 'Электронная почта',
             message: 'Сообщение',
             send: 'Отправить',
-            information_service: 'Информационная служба'
+            information_service: 'Информационная служба',
+            required: 'заполните поля отмеченные с *'
         },
         en: {
             app_title_short: 'CDE',
@@ -108,7 +111,8 @@ export default defineI18nConfig(() => ({
             email: 'E-mail',
             message: 'Message',
             send: 'Send',
-            information_service: 'Information Service'
+            information_service: 'Information Service',
+            required: 'fill in the fields marked with *'
         }
     }
 }))

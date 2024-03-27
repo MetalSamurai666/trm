@@ -1,6 +1,7 @@
 <script setup>
-
     import { useMainStore } from "@/store/main";
+    import { getId } from '@/utils/videos.js'
+    
     const mainStore = useMainStore()
     const { locale } = useI18n()
 
@@ -13,6 +14,18 @@
         }
     }
 
+    const videos = ref([])
+    const getVids = async (lang) => {
+        let res = await mainStore.getVideos(lang)
+        if (res.data.value) {
+            videos.value = res.data.value.map(item => {
+                item.link = getId(item?.url)
+                return item
+            })
+            console.log(videos.value)
+        }
+    }
+
     watch(
         () => locale.value,
         () => getData(locale.value)
@@ -20,6 +33,7 @@
 
     onMounted(() => {
         getData(locale.value)
+        getVids()
     })
 </script>
 
@@ -50,12 +64,9 @@
                     
                     <div class="contents__right">
                         <ul class="contents__video">
-                            <li class="item">
-                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/-caqXHhEvWM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </li>
-                            <li class="item">
-                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8waPOxWiAjU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </li>
+                            <div v-for="item of videos" :key="item?._id">
+                                <div class="item" v-html="item?.link"></div>
+                            </div>
                         </ul>
                     </div>
                 </div>

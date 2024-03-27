@@ -72,13 +72,13 @@
                                     <div class="slide__logo">
                                         <img :src="`${mainStore.url}/${item?.img}`">
                                     </div>
-                                    <nuxt-link :to="`activity-${item?.slug}`" class="slide__title">
+                                    <nuxt-link :to="localePath(`/activity-${item?.slug}`)" class="slide__title">
                                         {{ item?.title }}
                                     </nuxt-link>
                                     <!-- <div class="slide__info" v-html="item?.content"></div> -->
                                     
                                     <div class="slide__btn">
-                                        <nuxt-link :to="`activity-${item?.slug}`" class="slide__title">
+                                        <nuxt-link :to="localePath(`/activity-${item?.slug}`)" class="slide__title">
                                             <img src="/logos/arrow-left.svg">
                                         </nuxt-link>
                                     </div>

@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 
 export const useMainStore = defineStore('indexId', () => {
-    const url = ref('https://trmapi.of-astora.uz')
+    const url = ref('https://api.trm.uz')
     const menus = ref([])
     const socials = ref([])
 
@@ -18,7 +18,6 @@ export const useMainStore = defineStore('indexId', () => {
         const res = await useFetch(url.value+`/api/socials/`)
         if (res.data.value) {
             socials.value = res.data.value
-            // console.log(socials.value, 'socials');
         }
     }
 
@@ -82,9 +81,9 @@ export const useMainStore = defineStore('indexId', () => {
         .catch(er => console.log(er))
     }
 
-    const getAllNews = (lang) => {
-        // console.log(lang)
-        return useFetch(url.value+`/api/news/latest/?lang=${lang}`)
+    const getAllNews = (next, lang) => {
+        // console.log(next, lang)
+        return useFetch(url.value+`/api/news/latest/?next=${next}&lang=${lang}`)
         .catch(er => console.log(er))
     }
 
@@ -119,8 +118,32 @@ export const useMainStore = defineStore('indexId', () => {
     }
 
     const getDocs = (slug, lang) => {
-        // console.log(slug, lang, 'docs')
         return useFetch(url.value+`/api/docs/${slug}/?lang=${lang}`)
+        .catch(er => console.log(er))
+    }
+
+    const getVideos = () => {
+        return useFetch(url.value+`/api/youtube`)
+        .catch(er => console.log(er))
+    }
+
+    const postInfo = (data) => {
+        // console.log(data)
+        return useFetch(url.value+`/api/contact`, {
+            method: 'POST',
+            body: {
+                name: data?.name,
+                sname: data?.sname,
+                phone: data?.phone,
+                email: data?.email,
+                text: data?.text,
+            },
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+        // .then((response) => response.json())
+        .then((json) => console.log(json))
         .catch(er => console.log(er))
     }
 
@@ -147,6 +170,8 @@ export const useMainStore = defineStore('indexId', () => {
         getAllSponsors,
         getFooter,
         getSocials,
-        getDocs
+        getDocs,
+        getVideos,
+        postInfo
     }
 })

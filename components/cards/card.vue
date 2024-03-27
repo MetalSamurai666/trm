@@ -13,13 +13,13 @@
     <li class="card">
         <div class="card__left">
             
-            <nuxt-link :to="`/yangiliklar/${card?.slug}`" class="card__img">
+            <nuxt-link :to="localePath(`/yangiliklar/${card?.slug}`)" class="card__img">
                 <img :src="`${mainStore.url}/${card?.img}`">
             </nuxt-link>
         </div>
 
         <div class="card__right">
-            <nuxt-link :to="`/yangiliklar/${card?.slug}`" class="card__title">{{ card?.title }}</nuxt-link>
+            <nuxt-link :to="localePath(`/yangiliklar/${card?.slug}`)" class="card__title">{{ card?.title }}</nuxt-link>
             
             <div class="card__date">{{ card?.date.slice(0, 10) }}</div>
         </div>

@@ -2,18 +2,18 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   ssr: false,
-  spaLoadingTemplate: './app-loading.html',
+  // spaLoadingTemplate: './app-loading.html',
   modules: [ 
     '@pinia/nuxt',
     '@nuxtjs/i18n',
   ],
-  nitro: {
-    compressPublicAssets: true
-  },
+  // nitro: {
+  //   compressPublicAssets: true
+  // },
   i18n: {
     detectBrowserLanguage: false,
     defaultLocale: 'uz',
-    strategy: 'no_prefix',
+    strategy: 'prefix',
     vueI18n: './i18n.config.ts',
     locales: [
       {

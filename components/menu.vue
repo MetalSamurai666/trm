@@ -18,10 +18,10 @@
 
 /* Getting CATegorieS🐈 */
     function changeRoute(slug, url) {
-        console.log(slug, url);
+        // console.log(slug, url);
         if (url.length > 0) {
             if (slug) {
-                router.push(`/${url}-${slug}`)
+                router.push(localePath(`/${url}-${slug}`))
             } else {
                 return false
             }
@@ -34,7 +34,9 @@
         menuStore.menuChange()
     }
 
-    const benefitsv = ref(menus)
+    const benefitsv = computed(() => {
+        return (menus.value)
+    })
     const changeBenefit = ((id) => {
         benefitsv.value = benefitsv.value.map((status, index) => {
             if (index === id) {
@@ -45,6 +47,13 @@
             return status
         }) 
     })
+
+
+    const localeCookie = useCookie('localeCookie')
+    function setDefaultLocale(lang){
+        setLocale(lang)
+        localeCookie.value = lang
+    }
 
 /* Functions */
     function closeMenu() {
@@ -72,7 +81,6 @@
                         >
                         <nuxt-link :class="item?.parent?.length > 0 ? 'item__link listly' : 'item__link'" 
                             @click="changeRoute(item?.slug, item?.url)"
-                            
                         >
                             <span>{{ item?.title }}</span>
                         </nuxt-link>
@@ -91,7 +99,7 @@
                         <ul class="item__list" v-if="item?.parent">
                             <li v-for="subItem, index of item?.parent" :key="index">
                                 <NuxtLink 
-                                    :to="`/${subItem?.url}${subItem?.slug ? '-' : ''}${'-',subItem?.slug ? subItem?.slug : ''}`"
+                                    :to="localePath(`/${subItem?.url}${subItem?.slug ? '-' : ''}${'-',subItem?.slug ? subItem?.slug : ''}`)"
                                     @click="closeMenu">
                                     {{ subItem?.title }}
                                 </NuxtLink>
@@ -100,7 +108,7 @@
                     </li>
 
                     <li class="item">
-                        <nuxt-link class="item__link" to="/aloqa" @click="closeMenu">
+                        <nuxt-link class="item__link" :to="localePath('/aloqa')" @click="closeMenu">
                             <span>{{ $t('contacts') }}</span>
                         </nuxt-link>
                     </li>
@@ -115,20 +123,20 @@
                         >
                             <button
                                 :class="lang.code == locale ? 'active' : ''"
-                                @click.prevent.stop="setLocale(lang.code)"
+                                @click.prevent.stop="setDefaultLocale(lang.code)"
                             >
                                 <span>{{ lang.name }}</span>
                             </button>
                         </div>
                         </div>
-                    <li class="item">
+                    <!-- <li class="item">
                         <div class="item__logo">
                             <img src="/logos/phone.svg">
                         </div>
                         <a href="tel:+998 71 342-65-75" class="item__title">
                             +998 71 342-65-75
                         </a>
-                    </li>
+                    </li> -->
                     <li class="item">
                         <div class="item__logo">
                             <img src="/logos/message.svg">

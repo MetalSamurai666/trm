@@ -1,9 +1,9 @@
 <template>
     <div :class="testState ? 'test' : 'test closed'">
-                <span>{{ $t('testing') }}</span>
-                <button class="close" @click="close">
-                    <img src="/logos/close.svg">
-                </button>
+        <span>{{ $t('testing') }}</span>
+        <button class="close" @click="close">
+            <img src="/logos/close.svg">
+        </button>
     </div>
 </template>
 

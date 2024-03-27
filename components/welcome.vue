@@ -75,10 +75,10 @@
                                     </div>
                                     <div class="slide__bot">
                                         <div class="slide__more">
-                                            <nuxt-link :to="`/yangiliklar/${item?.slug}`">{{ $t('more') }}</nuxt-link>
+                                            <nuxt-link :to="localePath(`/yangiliklar/${item?.slug}`)">{{ $t('more') }}</nuxt-link>
                                         </div>
                                         <div class="slide__all">
-                                            <nuxt-link to="/yangiliklar">{{ $t('all_news') }}</nuxt-link>
+                                            <nuxt-link :to="localePath('/yangiliklar')">{{ $t('all_news') }}</nuxt-link>
                                         </div>
                                     </div>
                                 </div>

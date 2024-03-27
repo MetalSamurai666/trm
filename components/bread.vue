@@ -15,7 +15,7 @@
 
                 <ul class="bread__list">
                     <li class="item">
-                        <nuxt-link to="/" class="item__link">
+                        <nuxt-link :to="localePath('/')" class="item__link">
                             <span>{{ $t('main') }}</span>
                         </nuxt-link>
                         <div class="item__logo">
@@ -24,7 +24,7 @@
                     </li>
 
                     <li class="item" v-if="breadType == 'news'">
-                        <nuxt-link to="/yangiliklar" class="item__link">
+                        <nuxt-link :to="localePath('/yangiliklar')" class="item__link">
                             <span>{{ $t('news') }}</span>
                         </nuxt-link>
                         <div class="item__logo">
@@ -33,7 +33,7 @@
                     </li>
 
                     <li class="item">
-                        <nuxt-link :to="route?.fullPath" class="item__link">
+                        <nuxt-link :to="localePath(route?.fullPath)" class="item__link">
                             <span>{{ breadTitle }}</span>
                         </nuxt-link>
                     </li>

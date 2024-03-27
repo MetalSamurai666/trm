@@ -90,6 +90,8 @@
             }
             &__title{
                 font-weight: 500;
+                position: relative;
+                width: fit-content;
             }
             &__input{
                 margin-top: 10px;
@@ -113,6 +115,18 @@
                     border-radius: 10px;
                 }
             }
+            &.req{
+                .item__title{
+                    &::after{
+                        content: '*';
+                        font-size: 14px;
+                        position: absolute;
+                        bottom: 0;
+                        right: -15px;
+                        color: rgb(228, 0, 0);
+                    }
+                }
+            }
         }
     }
 
@@ -120,14 +134,30 @@
         width: fit-content;
         margin-left: auto;
         margin-top: 20px;
+        display: flex; align-items: center;
+        gap: 30px;
+        p{
+            font-size: 14px;
+        }
         button{
             @include tr(.2s);
-            background-color: $colorLightBlue;
+            background-color: #757575;
             color: #fff;
             padding: 15px 55px;
             border-radius: 10px;
+            cursor: not-allowed;
             &:hover{
-                background-color: darken($colorLightBlue, 5%);
+                background-color: darken(#757575, 5%);
+            }
+        }
+        &.ok{
+            button{
+                cursor: pointer;
+                pointer-events: all;
+                background-color: $colorLightBlue;
+                &:hover{
+                    background-color: darken($colorLightBlue, 5%);
+                }
             }
         }
     }

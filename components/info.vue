@@ -1,4 +1,20 @@
 <script setup> 
+    import { useMainStore } from "@/store/main"
+
+    const store = useMainStore()
+
+    const info = ref({
+        name: '',
+        sname: '',
+        phone: '',
+        email: '',
+        text: ''
+    })
+
+    function sendInfo() {
+        // console.log(info)
+        store.postInfo(info.value)
+    }
 
 </script>
 
@@ -53,42 +69,44 @@
 
                     <div class="info__right">
                         <div class="info__title">{{ $t('contact_us') }}</div>
-
+                        
                         <ul class="info__inputs">
-                            <li class="item">
+                            <li class="item req">
                                 <div class="item__title">{{ $t('name') }}</div>
-                                <div class="item__input">
-                                    <input type="text">
+                                <div class="item__input" >
+                                    <input type="text" v-model="info.name">
                                 </div>
                             </li>
-                            <li class="item">
+                            <li class="item req">
                                 <div class="item__title">{{ $t('surname') }}</div>
                                 <div class="item__input">
-                                    <input type="text">
+                                    <input type="text" v-model="info.sname">
                                 </div>
                             </li>
-                            <li class="item">
+                            <li class="item req">
                                 <div class="item__title">{{ $t('number') }}</div>
                                 <div class="item__input">
-                                    <input type="tel">
+                                    <input type="tel" v-model="info.phone">
                                 </div>
                             </li>
                             <li class="item">
                                 <div class="item__title">{{ $t('email') }}</div>
                                 <div class="item__input">
-                                    <input type="email">
+                                    <input type="email" v-model="info.email">
                                 </div>
                             </li>
-                            <li class="item big">
+                            <li class="item req big">
                                 <div class="item__title">{{ $t('message') }}</div>
                                 <div class="item__input">
-                                    <textarea></textarea>
+                                    <textarea v-model="info.text"></textarea>
                                 </div>
                             </li>
                         </ul>
 
-                        <div class="info__send">
-                            <button>{{ $t('send') }}</button>
+                        <div :class="info.name && info.sname && info.phone && info.text ? 'info__send ok' : 'info__send'">
+                            <p>{{ $t('required') }}</p>
+
+                            <button @click="sendInfo">{{ $t('send') }}</button>
                         </div>
                     </div>
                 </div>

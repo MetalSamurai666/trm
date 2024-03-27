@@ -32,7 +32,7 @@
             <div class="header__box">
                 <div class="header__left">
                     <div class="header__logo">
-                        <nuxt-link to="/">
+                        <nuxt-link :to="localePath('/')">
                             <img src="/logo.svg">
                             <span v-html="$t('app_title')"></span>
                         </nuxt-link>
@@ -97,7 +97,7 @@
                                 :key="index"
                             >
                                 <nuxt-link class="item__link" 
-                                    :to="item?.url?.length > 0 ? `/${item?.slug ? item?.url : ''}${item?.slug ? '-' : ''}${'-',item?.slug}` : item?.url === 'cat' ? '' : ''"
+                                    :to="localePath(item?.url?.length > 0 ? `/${item?.slug ? item?.url : ''}${item?.slug ? '-' : ''}${'-',item?.slug}` : item?.url === 'cat' ? '' : '')"
                                 >
                                     <span>{{ item?.title }}</span>
                                     <img src="/logos/arrow-down.svg" v-if="item?.parent?.length > 0">
@@ -109,7 +109,7 @@
                                             v-for="subItem, index of item?.parent"
                                             :key="index"
                                         >
-                                            <nuxt-link :to="`/${subItem?.url}${subItem?.slug ? '-' : ''}${'-',subItem?.slug ? subItem?.slug : ''}`">
+                                            <nuxt-link :to="localePath(`/${subItem?.url}${subItem?.slug ? '-' : ''}${'-',subItem?.slug ? subItem?.slug : ''}`)">
                                                 {{ subItem?.title }}
                                             </nuxt-link>
                                         </li>
@@ -117,7 +117,7 @@
                                 </div>
                             </li>
                             <li class="item">
-                                <nuxt-link class="item__link" to="aloqa">
+                                <nuxt-link class="item__link" :to="localePath('aloqa')">
                                     <span>{{ $t('contacts') }}</span>
                                 </nuxt-link>
                             </li>

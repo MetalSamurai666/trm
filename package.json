@@ -4,7 +4,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev -o",
-    "generate": "nuxt generate",
+    "generate": "nuxi generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
@@ -23,7 +23,6 @@
     "@pinia/nuxt": "^0.4.11",
     "@splidejs/vue-splide": "^0.6.12",
     "pinia": "^2.1.4",
-    "vue-easy-lightbox": "^1.16.0",
-    "vuejs-paginate-next": "^1.0.2"
+    "vue-awesome-paginate": "^1.1.46"
   }
 }

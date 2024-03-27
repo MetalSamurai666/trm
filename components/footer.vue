@@ -72,7 +72,7 @@
 
                         <li class="item" v-for="item, index of list" :key="index">
                             <nuxt-link class="item__title" 
-                                :to="item?.url.length > 0 ? `/${item?.slug ? item?.url : ''}${item?.slug ? '-' : ''}${'-',item?.slug}` : null"
+                                :to="localePath(item?.url.length > 0 ? `/${item?.slug ? item?.url : ''}${item?.slug ? '-' : ''}${'-',item?.slug}` : null)"
                             >
                                 <span>{{ item?.title }}</span>
                             </nuxt-link>
@@ -82,7 +82,7 @@
                                     <!-- <nuxt-link :to="subItem?.slug">
                                         <span>{{ subItem?.title }}</span>
                                     </nuxt-link> -->
-                                    <nuxt-link :to="`/${subItem?.url}${subItem?.slug ? '-' : ''}${'-',subItem?.slug}`">
+                                    <nuxt-link :to="localePath(`/${subItem?.url}${subItem?.slug ? '-' : ''}${'-',subItem?.slug}`)">
                                         {{ subItem?.title }}
                                     </nuxt-link>
                                 </li>
